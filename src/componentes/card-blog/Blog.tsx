@@ -22,14 +22,14 @@ export default function Blog() {
         </p>
       </div>
       <button
-        className="flex gap-2 p-2 bg-dentimed-blue
+        className="flex gap-2 p-2 bg-sky-300
        text-white
-       font-medium absolute
+       font-normal absolute
        -bottom-unit-5 right-6
        rounded-md text-xs
        items-center
        shadow-lg
-       hover:bg-sky-500"
+       hover:bg-dentimed-blue"
       >
         Leer Más{" "}
         <svg

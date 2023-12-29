@@ -1,6 +1,6 @@
 export default function Blog() {
   return (
-    <div className="flex h-48 flex-col gap-4  shadow-xl justify-center px-4 rounded hover:translate-y-1 duration-300 w-96 border-t-2 border-dentimed-blue">
+    <div className="flex h-48 flex-col gap-4 shadow-large justify-center px-4 rounded hover:translate-y-1 duration-300 w-96">
       <h1 className="text-center text-dentimed-blue text-lg font-bold">
         DentiMed CC Titan Plaza
       </h1>
@@ -41,7 +41,7 @@ export default function Blog() {
 
           <span>601 745438</span>
         </div>
-        <button className="flex gap-2 bg-dentimed-blue text-white p-2 rounded hover:bg-sky-500 duration-300 ">
+        <button className="flex gap-2 bg-sky-300 text-white p-2 rounded hover:bg-dentimed-blue duration-300 ">
           Agendar
           <svg
             xmlns="http://www.w3.org/2000/svg"

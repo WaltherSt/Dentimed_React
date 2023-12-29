@@ -7,7 +7,7 @@ interface CardService {
 
 const CardService: React.FC<CardService> = ({ title, lista }) => {
   return (
-    <div className="shadow-lg w-72 rounded hover:-translate-y-1 duration-300 ">
+    <div className="shadow-lg w-72 rounded hover:-translate-y-1 duration-300 h-full ">
       <div className="flex py-4 px-8 justify-between items-center">
         <img className="logo" src="src/assets/molar.svg" alt="logo" />
         <h1 className="card-title text-dentimed-blue font-medium">{title}</h1>

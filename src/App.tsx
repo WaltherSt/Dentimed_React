@@ -1,6 +1,7 @@
 import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 import CardService from "./componentes/card-service/CardService";
+import FormRegister from "./componentes/forms/FormRegister";
 import NavBar from "./componentes/navbar/NavBar";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
       <Sede/>
 
       <Blog />
+      <FormRegister/>
     </div>
   );
 }

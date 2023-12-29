@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+}
+.card-title{
+    font-size: 22px;
+}

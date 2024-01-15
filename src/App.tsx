@@ -1,8 +1,10 @@
+
 import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 import CardService from "./componentes/card-service/CardService";
 import FormRegister from "./componentes/forms/FormRegister";
 import NavBar from "./componentes/navbar/NavBar";
+import CircularProgress1 from "./componentes/progress/CircularProgress1";
 
 export default function App() {
   const lista = [
@@ -22,6 +24,7 @@ export default function App() {
 
       <Blog />
       <FormRegister/>
+      <CircularProgress1/>
     </div>
   );
 }

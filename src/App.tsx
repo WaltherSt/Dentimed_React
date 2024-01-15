@@ -1,5 +1,6 @@
 
 import Blog from "./componentes/card-blog/Blog";
+import Target_pay from "./componentes/card-pay/Target_pay";
 import Sede from "./componentes/card-sede/Sede";
 import CardService from "./componentes/card-service/CardService";
 import FormRegister from "./componentes/forms/FormRegister";
@@ -25,6 +26,7 @@ export default function App() {
       <Blog />
       <FormRegister/>
       <CircularProgress1/>
+      <Target_pay/>
     </div>
   );
 }

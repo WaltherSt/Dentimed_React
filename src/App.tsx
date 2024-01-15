@@ -3,6 +3,7 @@ import Sede from "./componentes/card-sede/Sede";
 import CardService from "./componentes/card-service/CardService";
 import FormRegister from "./componentes/forms/FormRegister";
 import NavBar from "./componentes/navbar/NavBar";
+import Target_pay from "./componentes/card-pay/Target_pay";
 
 export default function App() {
   const lista = [
@@ -22,6 +23,7 @@ export default function App() {
 
       <Blog />
       <FormRegister/>
+      <Target_pay/>
     </div>
   );
 }

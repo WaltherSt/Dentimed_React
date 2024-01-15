@@ -2,7 +2,7 @@ export default function Blog() {
   return (
     <div className="flex h-48 flex-col gap-4 shadow-large justify-center px-4 rounded hover:translate-y-1 duration-300 w-96">
       <h1 className="text-center text-dentimed-blue text-lg font-bold">
-        DentiMed CC Titan Plaza
+        DentiMed CC Titan Plaza - Test
       </h1>
       <div className="flex gap-3 ">
         <svg

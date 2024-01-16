@@ -1,8 +1,11 @@
+import Button from "../button/Button";
+
 export default function FormRegister() {
   return (
-    <form action="" className="flex flex-col gap-3 w-96 shadow-large  p-5 h-full rounded-lg">
-
-
+    <form
+      action=""
+      className="flex flex-col gap-3 w-96 shadow-large  p-5 h-full rounded-lg"
+    >
       <input className="p-2" type="text" placeholder="Nombres" />
       <input className="p-2" type="text" placeholder="Apellidos" />
       <input className="p-2" type="email" placeholder="Correo" />
@@ -14,11 +17,12 @@ export default function FormRegister() {
       <input className="p-2" type="date" placeholder="Fecha de nacimiento" />
       <input className="p-2" type="password" placeholder="Contraseña" />
 
-      <input
-        className="bg-sky-300 text-white p-2 rounded-md hover:bg-dentimed-blue cursor-pointer"
-        type="submit"
-        value="Registrar"
-      />
+      <div className="w-full">
+      <Button label="Registrar" background="Primary" />
+
+      </div>
+
+
     </form>
   );
 }

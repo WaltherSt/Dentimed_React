@@ -1,4 +1,4 @@
-import React from "react";
+
 
 interface ItemNav {
   name: string;
@@ -12,6 +12,7 @@ const ItemNav: React.FC<ItemNav> = ({ name }) => {
     >
       {name}
     </a>
+
   );
 };
 

@@ -3,17 +3,17 @@ import ItemNav from "./ItemNav";
 import Logo from "./Logo";
 
 interface NavBar {
-  lista: string[];
+  list: string[];
 }
 
-const NavBar: React.FC<NavBar> = ({ lista }) => {
+const NavBar: React.FC<NavBar> = ({ list }) => {
   return (
     <div className=" flex flex-row w-full border-b-2 border-dentimed-blue font-lexed">
       <div className="w-1/4 pl-2">
         <Logo />
       </div>
       <div className="flex justify-around w-3/4">
-        {lista.map((item) => (
+        {list.map((item) => (
           <ItemNav name={item} />
         ))}
       </div>

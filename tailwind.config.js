@@ -9,15 +9,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dentimed-blue': '#39BDF8',
+        "dentimed-blue": "#39BDF8",
+        "dentimed-red-light": "#F1222280",
+        "dentimed-red": "#F12222",
       },
       width: {
-
-        '700': '700px',
+        700: "700px",
       },
-      height:{
-        '213':'213px'
-      }
+      height: {
+        213: "213px",
+      },
     },
   },
   darkMode: "class",

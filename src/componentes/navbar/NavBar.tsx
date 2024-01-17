@@ -1,13 +1,14 @@
-import React from "react";
-import LoginIcon from "../icons/LoginIcon";
+import React, { ReactNode } from "react";
 import ItemNav from "./ItemNav";
 import Logo from "./Logo";
 
 interface NavBar {
   list: string[];
+  login?:ReactNode;
+  user?:ReactNode
 }
 
-const NavBar: React.FC<NavBar> = ({ list }) => {
+const NavBar: React.FC<NavBar> = ({ list, login, user}) => {
   return (
     <div className=" flex w-full border-b-2 border-dentimed-blue font-lexed justify-between items-center">
       <div className="pl-2">
@@ -18,11 +19,8 @@ const NavBar: React.FC<NavBar> = ({ list }) => {
           <ItemNav name={item} />
         ))}
       </div>
-
-      <div className="mr-5 h-4/5 flex justify-center p-2 text-sky-400 rounded gap-1 cursor-pointer duration-200 hover:bg-slate-100">
-        <a className="">Login</a>
-        <LoginIcon />
-      </div>
+      {login}
+      {user}
     </div>
   );
 };

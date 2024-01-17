@@ -15,7 +15,7 @@ const CardService: React.FC<CardService> = ({ title, list }) => {
       <div className="py-4 border-t-1 px-8 border-dentimed-blue">
         <ul className="flex flex-col gap-y-5">
           {list.map((item) => (
-            <li>{item}</li>
+            <li className="text-sm">{item}</li>
           ))}
         </ul>
       </div>

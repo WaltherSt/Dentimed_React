@@ -17,7 +17,7 @@ export default function App() {
     "Implantes dentales All-On-4®",
   ];
   const titulo = "Implantes Dentales";
-  const lista2 = ["Inicio", "Servicios", "Blog", "Login"];
+  const lista2 = ["Inicio", "Servicios", "Blog"];
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       <NavBar list={lista2} />

@@ -11,7 +11,7 @@ export default class Menu extends Component {
   render() {
     return (
 
-      <div className=' flex flex-col w-64 shadow-lg'>
+      <div className=' flex flex-col w-72 shadow-lg h-96'>
         <div className='py-2 border-b-2 border-dentimed-blue'>
           <Logo/>
         </div>

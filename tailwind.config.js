@@ -15,6 +15,7 @@ export default {
       },
       width: {
         700: "700px",
+        calendar:"966px"
       },
       height: {
         213: "213px",

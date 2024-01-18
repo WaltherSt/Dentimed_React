@@ -6,8 +6,8 @@ import CardService from "./componentes/card-service/CardService";
 import FormLogin from "./componentes/forms/FormLogin";
 import FormRegister from "./componentes/forms/FormRegister";
 import AgendarIcon from "./componentes/icons/AgendarIcon";
-import DeleteIcon from "./componentes/icons/DeleteIcon";
 import ItemMeet from "./componentes/meets/ItemMeet";
+import Menu from "./componentes/menu/Menu";
 import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
@@ -36,10 +36,11 @@ export default function App() {
         background={"Primary"}
         svgIcon={<AgendarIcon />}
       />
-      <Button label="Borrar" background={"Danger"} svgIcon={<DeleteIcon />} />
+      <Button label="Eliminar" background={"Danger"} />
       <NavBar list={lista2} login={<ButtonLogin />} />
       <ItemMeet/>
       <FormLogin/>
+      <Menu/>
 
 
     </div>

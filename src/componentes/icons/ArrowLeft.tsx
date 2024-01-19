@@ -9,7 +9,7 @@ export default class ArrowLeft extends Component {
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="w-6 h-6 cursor-pointer text-gray-400 hover:text-gray-700"
+        className="w-6 h-6 cursor-pointer  hover:text-gray-700"
       >
         <path
           stroke-linecap="round"

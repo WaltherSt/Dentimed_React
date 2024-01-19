@@ -20,6 +20,7 @@ export default {
       height: {
         213: "213px",
       },
+
     },
   },
   darkMode: "class",

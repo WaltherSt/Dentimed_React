@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ label, background, svgIcon }) => {
   const backgroundClasses: Record<string, string> = {
-    Primary: "bg-sky-300 hover:bg-dentimed-blue",
+    Primary: `bg-sky-300 hover:bg-dentimed-blue`,
     Danger: "bg-dentimed-red-light hover:bg-dentimed-red",
     Secundary: "bg-sky-200 hover:bg-dentimed-blue"
   };

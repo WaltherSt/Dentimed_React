@@ -1,5 +1,5 @@
 import Button from "./componentes/button/Button";
-import CalendarContainer from "./componentes/calendar/CalendarContainer";
+import Calendar from "./componentes/calendar/Calendar";
 import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 
@@ -25,6 +25,8 @@ export default function App() {
   const titulo = "Implantes Dentales";
   const lista2 = ["Inicio", "Servicios", "Blog"];
   const lista3 = ["Citas", "Pagos", "Agendar"];
+
+  const fechaActual = new Date(2024, 3, 1);
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       <NavBar list={lista3} login={<AvatarUser />} />
@@ -40,17 +42,13 @@ export default function App() {
       />
       <Button label="Eliminar" background={"Danger"} />
       <NavBar list={lista2} login={<ButtonLogin />} />
-      <ItemMeet/>
-      <FormLogin/>
-      <Menu/>
-      <CalendarContainer/>
-      <Table/>
+      <ItemMeet />
+      <FormLogin />
+      <Menu />
+      <Calendar date={fechaActual} />
+      <Table />
 
-
-
-
-
-
+      <div className="w-full mx-2"></div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ import Menu from "./componentes/menu/Menu";
 import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
-import PatientTable from "./componentes/tables/PatientTable";
+import Table from "./componentes/tables/Table";
 
 export default function App() {
   const lista = [
@@ -44,7 +44,7 @@ export default function App() {
       <FormLogin/>
       <Menu/>
       <CalendarContainer/>
-      <PatientTable/>
+      <Table/>
 
 
 

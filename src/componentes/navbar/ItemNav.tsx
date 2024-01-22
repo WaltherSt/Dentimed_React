@@ -1,4 +1,4 @@
-import React from "react";
+
 
 interface ItemNav {
   name: string;
@@ -7,11 +7,12 @@ interface ItemNav {
 const ItemNav: React.FC<ItemNav> = ({ name }) => {
   return (
     <a
-      className="  my-3.5 px-4 text-dentimed-blue border-dentimed-blue font-medium hover:scale-110  hover:transition duration-400 "
+      className="  my-3.5 px-4 text-dentimed-blue border-dentimed-blue hover:scale-110"
       href=""
     >
       {name}
     </a>
+
   );
 };
 

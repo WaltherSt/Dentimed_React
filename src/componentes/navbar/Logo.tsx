@@ -116,6 +116,7 @@ export default function Logo() {
           />
         </filter>
       </defs>
+
     </svg>
   );
 }

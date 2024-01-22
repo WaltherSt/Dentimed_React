@@ -10,15 +10,15 @@ export default {
     extend: {
       colors: {
         'dentimed-blue': '#39BDF8',
-        'dentimed-danger': '#FF0000',
       },
       width: {
-
-        '700': '700px',
+        700: "700px",
+        calendar:"966px"
       },
-      height:{
-        '213':'213px'
-      }
+      height: {
+        213: "213px",
+      },
+
     },
   },
   darkMode: "class",

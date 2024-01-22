@@ -28,7 +28,7 @@ export default function App() {
       <DateAppointment 
       nameDoctor="Nombre de especialista"
       place="Lugar de cita"
-      date="Fecha de la cita"
+      date="Fecha de la cita "
       time="Hora de la cita"
       />
       <FormRegister/>

@@ -12,7 +12,7 @@ import Menu from "./componentes/menu/Menu";
 import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
-import CircularProgress1 from "./componentes/progress/CircularProgress1";
+import DateAppointment from "./componentes/date-Appointment/DateAppointment";
 
 export default function App() {
   const lista = [
@@ -22,8 +22,9 @@ export default function App() {
     "Implantes dentales All-On-4®",
     "Implantes dentales All-On-4®",
   ];
-  const titulo = "implante dental";
-  const lista2 = ["Inicio", "Servicios", "Blog", "Login"];
+  const titulo = "Implantes Dentales";
+  const lista2 = ["Inicio", "Servicios", "Blog"];
+  const lista3 = ["Citas", "Pagos", "Agendar"];
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       <NavBar list={lista3} login={<AvatarUser />} />
@@ -31,9 +32,31 @@ export default function App() {
       <CardService title={titulo} list={lista} />
       <Sede />
       <Blog />
+      <DateAppointment 
+      nameDoctor="Nombre de especialista"
+      place="Lugar de cita"
+      date="Fecha de la cita"
+      time="Hora de la cita"
+      />
       <FormRegister/>
-      <CircularProgress1/>
-      <Target_pay/>
+      <FormRegister />
+      <Button
+        label="Agendar"
+        background={"Primary"}
+        svgIcon={<AgendarIcon />}
+      />
+      <Button label="Eliminar" background={"Danger"} />
+      <NavBar list={lista2} login={<ButtonLogin />} />
+      <ItemMeet/>
+      <FormLogin/>
+      <Menu/>
+      <CalendarContainer/>
+
+
+
+
+
+
     </div>
   );
 }

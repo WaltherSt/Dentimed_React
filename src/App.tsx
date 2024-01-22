@@ -1,11 +1,18 @@
-
+import Button from "./componentes/button/Button";
+import Calendar from "./componentes/calendar/Calendar";
 import Blog from "./componentes/card-blog/Blog";
-import Target_pay from "./componentes/card-pay/Target_pay";
 import Sede from "./componentes/card-sede/Sede";
+
 import CardService from "./componentes/card-service/CardService";
+import FormLogin from "./componentes/forms/FormLogin";
 import FormRegister from "./componentes/forms/FormRegister";
+import AgendarIcon from "./componentes/icons/AgendarIcon";
+import ItemMeet from "./componentes/meets/ItemMeet";
+import Menu from "./componentes/menu/Menu";
+import AvatarUser from "./componentes/navbar/AvatarUser";
+import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
-import CircularProgress1 from "./componentes/progress/CircularProgress1";
+import Table from "./componentes/tables/Table";
 
 export default function App() {
   const lista = [
@@ -15,18 +22,33 @@ export default function App() {
     "Implantes dentales All-On-4®",
     "Implantes dentales All-On-4®",
   ];
-  const titulo = "implante dental";
-  const lista2 = ["Inicio", "Servicios", "Blog", "Login"];
+  const titulo = "Implantes Dentales";
+  const lista2 = ["Inicio", "Servicios", "Blog"];
+  const lista3 = ["Citas", "Pagos", "Agendar"];
+
+  const fechaActual = new Date(2024, 3, 1);
   return (
     <div className="flex gap-8 flex-wrap justify-center">
-      <NavBar lista={lista2} />
-      <CardService title={titulo} lista={lista} />
-      <Sede/>
+      <NavBar list={lista3} login={<AvatarUser />} />
 
+      <CardService title={titulo} list={lista} />
+      <Sede />
       <Blog />
-      <FormRegister/>
-      <CircularProgress1/>
-      <Target_pay/>
+      <FormRegister />
+      <Button
+        label="Agendar"
+        background={"Primary"}
+        svgIcon={<AgendarIcon />}
+      />
+      <Button label="Eliminar" background={"Danger"} />
+      <NavBar list={lista2} login={<ButtonLogin />} />
+      <ItemMeet />
+      <FormLogin />
+      <Menu />
+      <Calendar date={fechaActual} />
+      <Table />
+
+      <div className="w-full mx-2"></div>
     </div>
   );
 }

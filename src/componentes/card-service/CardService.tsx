@@ -2,20 +2,20 @@ import CardStyles from "./CardStyles.module.css";
 
 interface CardService {
   title: string;
-  lista: string[];
+  list: string[];
 }
 
-const CardService: React.FC<CardService> = ({ title, lista }) => {
+const CardService: React.FC<CardService> = ({ title, list }) => {
   return (
     <div className="shadow-lg w-72 rounded hover:-translate-y-1 duration-300 h-full ">
       <div className="flex py-4 px-8 justify-between items-center">
         <img className="logo" src="src/assets/molar.svg" alt="logo" />
-        <h1 className="card-title text-dentimed-blue font-medium">{title}</h1>
+        <h1 className="card-title text-dentimed-blue font-normal text-lg ">{title}</h1>
       </div>
       <div className="py-4 border-t-1 px-8 border-dentimed-blue">
         <ul className="flex flex-col gap-y-5">
-          {lista.map((item) => (
-            <li>{item}</li>
+          {list.map((item) => (
+            <li className="text-sm">{item}</li>
           ))}
         </ul>
       </div>

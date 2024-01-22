@@ -25,7 +25,7 @@ export default function App() {
   ];
   const titulo = "Implantes Dentales";
   const lista2 = ["Inicio", "Servicios", "Blog"];
-  const lista3 = ["Citas", "Pagos", "Agendar2"];
+  const lista3 = ["Citas", "Pagos", "Agendar3"];
 
   const fechaActual = new Date(2024, 3, 1);
   return (

@@ -4,6 +4,7 @@ import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 
 import CardService from "./componentes/card-service/CardService";
+import DateAppointment from "./componentes/date-Appointment/DateAppointment";
 import FormLogin from "./componentes/forms/FormLogin";
 import FormRegister from "./componentes/forms/FormRegister";
 import AgendarIcon from "./componentes/icons/AgendarIcon";
@@ -34,7 +35,12 @@ export default function App() {
       <CardService title={titulo} list={lista} />
       <Sede />
       <Blog />
-      <FormRegister/>
+      <DateAppointment
+        nameDoctor="Nombre de especialista"
+        place="Lugar de cita"
+        date="Fecha de la cita "
+        time="Hora de la cita"
+      />
       <FormRegister />
       <Button
         label="Agendar"

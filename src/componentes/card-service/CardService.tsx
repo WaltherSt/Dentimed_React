@@ -15,7 +15,7 @@ const CardService: React.FC<CardService> = ({ title, list }) => {
       <div className="py-4 border-t-1 px-8 border-dentimed-blue">
         <ul className="flex flex-col gap-y-5">
           {list.map((item) => (
-            <li className="text-sm">{item}</li>
+            <li className="text-sm" key={Math.random()}>{item }</li>
           ))}
         </ul>
       </div>
@@ -27,13 +27,13 @@ const CardService: React.FC<CardService> = ({ title, list }) => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1"
+          strokeWidth="1"
           stroke="currentColor"
           className="w-20 h-20"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="m8.25 4.5 7.5 7.5-7.5 7.5"
           />
         </svg>

@@ -4,7 +4,6 @@ import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 
 import CardService from "./componentes/card-service/CardService";
-import DateAppointment from "./componentes/date-Appointment/DateAppointment";
 import FormLogin from "./componentes/forms/FormLogin";
 import FormRegister from "./componentes/forms/FormRegister";
 import AgendarIcon from "./componentes/icons/AgendarIcon";
@@ -13,6 +12,8 @@ import Menu from "./componentes/menu/Menu";
 import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
+import DateAppointment from "./componentes/date-Appointment/DateAppointment";
+import Doctor_card from "./componentes/card-Doctor/Doctor_card";
 import Table from "./componentes/tables/Table";
 
 export default function App() {
@@ -49,11 +50,12 @@ export default function App() {
       />
       <Button label="Eliminar" background={"Danger"} />
       <NavBar list={lista2} login={<ButtonLogin />} />
-      <ItemMeet />
-      <FormLogin />
-      <Menu />
+      <ItemMeet/>
+      <FormLogin/>
+      <Menu/>
+      <Doctor_card/>
       <Calendar date={fechaActual} />
-      <Table />
+      <Table />      
 
       <div className="w-full mx-2"></div>
     </div>

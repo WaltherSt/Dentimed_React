@@ -40,7 +40,7 @@ const Calendar: FunctionComponent<Props> = ({ date }) => {
   for (let i = 1; i <= dat.daysInMonth(); i++) {
     const currentDay = dayjs();
 
-    if (i == day && currentDay.month() == dat.month()) {
+    if (i == day && currentDay.month() == dat.month() && dat.year() == dayjs().year()) {
       //compara si el mes en el que se está correponde al actual, esto para marcar el dia del mes actual.
       daysTheMonth.push(
         <ItemCalendar day={i} meets={i} activeIcon={<Punto />} key={i} />

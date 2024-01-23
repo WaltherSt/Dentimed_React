@@ -3,11 +3,14 @@ import React from 'react'
 function Doctor_card() {
   return (
     <div className='h-min w- shadow-xl rounded hover:translate-y-1 duration-300' >
+        <div className='border-black border-1'>
         <img
         src='https://medlink.la/v3/assets/images/doctor.jpg?v=1698219837'
         alt='Perfil de Doctor'
         className='w-60 m-auto'
         />
+        </div>
+        
         <h1 className='p-2 font-normal text-dentimed-blue'>Nombre</h1>
         <h2 className='w-72 pl-2 pb-3'>Cristian Camilo Torres Trujillo</h2>
         
@@ -26,7 +29,7 @@ function Doctor_card() {
           viewBox="0 0 24 24"
           stroke-width="1"
           stroke="currentColor"
-          className="w-10"
+          className="w-10 "
         >
           <path
             stroke-linecap="round"

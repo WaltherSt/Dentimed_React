@@ -5,7 +5,7 @@ interface Props {
 }
 
 const DayItem: FunctionComponent<Props> = ({ day }) => {
-  return <p className="w-32 text-center text-white text-xl">{day}</p>;
+  return <p className="w-32 text-center text-white text-xl capitalize">{day}</p>;
 };
 
 export default DayItem;

@@ -13,6 +13,7 @@ import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
 import DateAppointment from "./componentes/date-Appointment/DateAppointment";
+import Doctor_card from "./componentes/card-Doctor/Doctor_card";
 
 export default function App() {
   const lista = [
@@ -51,6 +52,7 @@ export default function App() {
       <FormLogin/>
       <Menu/>
       <CalendarContainer/>
+      <Doctor_card/>
 
 
 

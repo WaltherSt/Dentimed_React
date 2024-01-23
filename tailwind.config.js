@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         'dentimed-blue': '#39BDF8',
+        'dentimed-danger':'#FF0000'
       },
       width: {
         700: "700px",

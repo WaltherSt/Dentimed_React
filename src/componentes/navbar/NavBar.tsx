@@ -16,7 +16,7 @@ const NavBar: React.FC<NavBar> = ({ list, login, user}) => {
       </div>
       <div className="flex gap-16">
         {list.map((item) => (
-          <ItemNav name={item} />
+          <ItemNav name={item} key={item}/>
         ))}
       </div>
       {login}

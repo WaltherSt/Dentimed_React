@@ -9,9 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dentimed-blue": "#39BDF8",
-        "dentimed-red-light": "#F1222280",
-        "dentimed-red": "#F12222",
+        'dentimed-blue': '#39BDF8',
+        'dentimed-danger':'#FF0000'
       },
       width: {
         700: "700px",

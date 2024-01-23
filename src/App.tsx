@@ -12,6 +12,8 @@ import Menu from "./componentes/menu/Menu";
 import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
+import DateAppointment from "./componentes/date-Appointment/DateAppointment";
+import Doctor_card from "./componentes/card-Doctor/Doctor_card";
 import Table from "./componentes/tables/Table";
 
 export default function App() {
@@ -24,9 +26,9 @@ export default function App() {
   ];
   const titulo = "Implantes Dentales";
   const lista2 = ["Inicio", "Servicios", "Blog"];
-  const lista3 = ["Citas", "Pagos", "Agendar"];
+  const lista3 = ["Citas", "Pagos44", "Agendar3"];
 
-  const fechaActual = new Date(2024, 3, 1);
+  const fechaActual = new Date(2024, 0, 1);
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       <NavBar list={lista3} login={<AvatarUser />} />
@@ -34,6 +36,12 @@ export default function App() {
       <CardService title={titulo} list={lista} />
       <Sede />
       <Blog />
+      <DateAppointment
+        nameDoctor="Nombre de especialista"
+        place="Lugar de cita"
+        date="Fecha de la cita "
+        time="Hora de la cita"
+      />
       <FormRegister />
       <Button
         label="Agendar"
@@ -42,11 +50,12 @@ export default function App() {
       />
       <Button label="Eliminar" background={"Danger"} />
       <NavBar list={lista2} login={<ButtonLogin />} />
-      <ItemMeet />
-      <FormLogin />
-      <Menu />
+      <ItemMeet/>
+      <FormLogin/>
+      <Menu/>
+      <Doctor_card/>
       <Calendar date={fechaActual} />
-      <Table />
+      <Table />      
 
       <div className="w-full mx-2"></div>
     </div>

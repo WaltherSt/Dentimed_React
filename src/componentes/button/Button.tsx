@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({ label, background, svgIcon }) => {
   const backgroundClass = backgroundClasses[background];
   const styles = `w-full cursor-pointer text-white p-2 rounded-md shadow-md text-center ${backgroundClass} flex gap-2 justify-center duration-300`;
   return (
-    <a className={styles}>
+    <a className={styles} href="home">
       {label}
       {svgIcon}
     </a>

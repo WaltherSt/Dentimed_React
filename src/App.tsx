@@ -28,7 +28,7 @@ export default function App() {
   const lista2 = ["Inicio", "Servicios", "Blog"];
   const lista3 = ["Citas", "Pagos44", "Agendar3"];
 
-  const fechaActual = new Date(2024, 3, 1);
+  const fechaActual = new Date(2024, 0, 1);
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       <NavBar list={lista3} login={<AvatarUser />} />

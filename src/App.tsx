@@ -3,7 +3,9 @@ import Calendar from "./componentes/calendar/Calendar";
 import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 
+import Doctor_card from "./componentes/card-Doctor/Doctor_card";
 import CardService from "./componentes/card-service/CardService";
+import DateAppointment from "./componentes/date-Appointment/DateAppointment";
 import FormLogin from "./componentes/forms/FormLogin";
 import FormRegister from "./componentes/forms/FormRegister";
 import AgendarIcon from "./componentes/icons/AgendarIcon";
@@ -12,8 +14,7 @@ import Menu from "./componentes/menu/Menu";
 import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
-import DateAppointment from "./componentes/date-Appointment/DateAppointment";
-import Doctor_card from "./componentes/card-Doctor/Doctor_card";
+import Profile from "./componentes/profile/Profile";
 import Table from "./componentes/tables/Table";
 
 export default function App() {
@@ -50,14 +51,16 @@ export default function App() {
       />
       <Button label="Eliminar" background={"Danger"} />
       <NavBar list={lista2} login={<ButtonLogin />} />
-      <ItemMeet/>
-      <FormLogin/>
-      <Menu/>
-      <Doctor_card/>
-      <Calendar date={fechaActual} />
-      <Table />      
+      <ItemMeet />
+      <FormLogin />
+      <Menu />
+      <Profile srcImage="https://media.istockphoto.com/id/1317241131/es/foto/imagen-de-estudio-de-una-joven-empresaria-confiada-posando-sobre-un-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=PkLplO4CdvIgn1O13k4o_3_x5Igaopf8M9llahm4BV0=" />
 
-      <div className="w-full mx-2"></div>
+      <Doctor_card />
+      <Calendar date={fechaActual} />
+      <Table />
+
+      <div className="w-full mx-2">P</div>
     </div>
   );
 }

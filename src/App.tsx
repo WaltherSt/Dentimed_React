@@ -11,7 +11,6 @@ import FormRegister from "./componentes/forms/FormRegister";
 import AgendarIcon from "./componentes/icons/AgendarIcon";
 import ItemMeet from "./componentes/meets/ItemMeet";
 import Menu from "./componentes/menu/Menu";
-import AvatarUser from "./componentes/navbar/AvatarUser";
 import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
 import Profile from "./componentes/profile/Profile";
@@ -27,12 +26,17 @@ export default function App() {
   ];
   const titulo = "Implantes Dentales";
   const lista2 = ["Inicio", "Servicios", "Blog"];
-  const lista3 = ["Citas", "Pagos44", "Agendar3"];
+  const lista3 = ["Citas", "Pagos", "Agendar"];
 
-  const fechaActual = new Date(2024, 0, 1);
+
   return (
     <div className="flex gap-8 flex-wrap justify-center">
-      <NavBar list={lista3} login={<AvatarUser />} />
+      <NavBar
+        list={lista3}
+        component={
+          <Profile srcImage="https://media.istockphoto.com/id/1317241131/es/foto/imagen-de-estudio-de-una-joven-empresaria-confiada-posando-sobre-un-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=PkLplO4CdvIgn1O13k4o_3_x5Igaopf8M9llahm4BV0=" />
+        }
+      />
 
       <CardService title={titulo} list={lista} />
       <Sede />
@@ -50,14 +54,14 @@ export default function App() {
         svgIcon={<AgendarIcon />}
       />
       <Button label="Eliminar" background={"Danger"} />
-      <NavBar list={lista2} login={<ButtonLogin />} />
+      <NavBar list={lista2} component={<ButtonLogin />} />
       <ItemMeet />
       <FormLogin />
       <Menu />
       <Profile srcImage="https://media.istockphoto.com/id/1317241131/es/foto/imagen-de-estudio-de-una-joven-empresaria-confiada-posando-sobre-un-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=PkLplO4CdvIgn1O13k4o_3_x5Igaopf8M9llahm4BV0=" />
 
       <Doctor_card />
-      <Calendar date={fechaActual} />
+      <Calendar/>
       <Table />
 
       <div className="w-full mx-2">P</div>

@@ -5,21 +5,20 @@ import localeData from "dayjs/plugin/localeData";
 import ArrowLeft from "../icons/ArrowLeft";
 import ArrowRight from "../icons/ArrowRight";
 
-import Punto from "../utils/Punto";
 import DayItem from "./DayItem";
 
 import { FunctionComponent, useState } from "react";
 import ItemCalendar from "./ItemCalendar";
 
-interface Props {
-  date: Date;
-}
+interface Props {}
 
-const Calendar: FunctionComponent<Props> = ({ date }) => {
+const Calendar: FunctionComponent<Props> = () => {
   dayjs.locale(es); //setea el idioma
   dayjs.extend(localeData);
 
-  const [dat, setDat] = useState(dayjs(date)); //transforma el date de tipo Date a dayjs y lo asigna al estado
+  const date = dayjs().set("year", 2024).set("month", 0).set("day", 0);
+
+  const [dat, setDat] = useState(date); //transforma el date de tipo Date a dayjs y lo asigna al estado
 
   function addMonth() {
     // funcion para agregar un mes a la fecha, ejemplo(2024-01-01) a (2024-02-01)
@@ -40,34 +39,37 @@ const Calendar: FunctionComponent<Props> = ({ date }) => {
   for (let i = 1; i <= dat.daysInMonth(); i++) {
     const currentDay = dayjs();
 
-    if (i == day && currentDay.month() == dat.month() && dat.year() == dayjs().year()) {
+    if (
+      i == day &&
+      currentDay.month() == dat.month() &&
+      dat.year() == dayjs().year()
+    ) {
       //compara si el mes en el que se está correponde al actual, esto para marcar el dia del mes actual.
       daysTheMonth.push(
-        <ItemCalendar day={i} meets={i} activeIcon={<Punto />} key={i} />
+        <ItemCalendar day={i} meets={i} activeIcon={true} key={i} />
       );
     } else {
       daysTheMonth.push(<ItemCalendar day={i} meets={i} key={i} />);
     }
   }
 
-  for (let i = 0; i < dat.day(); i++) {
+  for (let i = 0; i < dat.day()+1; i++) {
     // dat.day() devuelve un numero del 0-6 que corresponde al primer día de un mes determinado(0 para lunes .... 6 para domingo)
-    daysTheMonth.unshift(<ItemCalendar key={32 + i} />); // usar unshift no debe considerarse un problema de rendimiento ya que el numero maximo de indexaciones por ciclo es de 37 algo que javascript maneja sin problema
+    daysTheMonth.unshift(<ItemCalendar key={32 + i} />);
     // agrega al inicio del array con elementos <ItemCalendar/> cascarones vacios correspondientes al numero de espacios que debe moverse la primera linea del calendario
   }
 
   return (
-    <div className="flex flex-col gap-2 w-calendar p-2 bg-sky-400 rounded-lg">
-      <div className="flex justify-between px-2 text-white pb-3">
-        <button onClick={removeMonth}>
+    <div className="flex flex-col gap-2 w-calendar p-4 shadow-2xl rounded-lg border-t-1">
+      <div className="flex justify-between px-2 text-dentimed-blue">
+        <button  onClick={removeMonth}>
           <ArrowLeft />
         </button>
 
-        <div className="flex gap-5">
-          <p className="text-2xl text-white font-bold capitalize ">
-            {dat.format("MMMM")}
+        <div className="flex text-2xl text-dentimed-blue font-bold">
+          <p className="text-2xl text-dentimed-blue font-bold capitalize">
+            {dat.format("MMMM")} {dat.format("YYYY")}
           </p>
-          <p className="text-2xl text-white font-bold ">{dat.format("YYYY")}</p>
         </div>
 
         <button onClick={addMonth}>
@@ -77,11 +79,15 @@ const Calendar: FunctionComponent<Props> = ({ date }) => {
 
       <div className="flex justify-between">
         {/* days.map(day) devuelve un array con los nombres de los dias de la semana */}
-        {days.map((day) => (
-          <DayItem day={day} key={day} />
-        ))}
+        {days.map((day) =>
+          day == "domingo" || day == "sábado" ? (
+            <DayItem day={day} key={day} variant={true} />
+          ) : (
+            <DayItem day={day} key={day} />
+          )
+        )}
       </div>
-      <div  className="grid grid-cols-7 gap-1">{daysTheMonth}</div>
+      <div className="grid grid-cols-7 gap-2">{daysTheMonth}</div>
     </div>
   );
 };

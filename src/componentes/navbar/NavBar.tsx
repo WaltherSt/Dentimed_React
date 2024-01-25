@@ -4,23 +4,21 @@ import Logo from "./Logo";
 
 interface NavBar {
   list: string[];
-  login?:ReactNode;
-  user?:ReactNode
+  component?: ReactNode;
 }
 
-const NavBar: React.FC<NavBar> = ({ list, login, user}) => {
+const NavBar: React.FC<NavBar> = ({ list, component }) => {
   return (
-    <div className=" flex w-full border-b-2 border-dentimed-blue font-lexed justify-between items-center">
-      <div className="pl-2">
+    <div className=" flex w-full shadow-md font-lexed justify-between items-center h-16 px-4">
+      <div>
         <Logo />
       </div>
       <div className="flex gap-16">
         {list.map((item) => (
-          <ItemNav name={item} key={item}/>
+          <ItemNav name={item} key={item} />
         ))}
       </div>
-      {login}
-      {user}
+      {component}
     </div>
   );
 };

@@ -14,10 +14,10 @@ const LiProfile: FunctionComponent<LiProfileProps> = ({
   const cla = `py-${high} px-2`;
 
   return (
-    <div className="flex items-center duration-300 ease-in-out hover:bg-gray-50 cursor-pointer capitalize px-1 text-xs ">
+    <p className="flex items-center duration-300 ease-in-out hover:bg-dentimed-blue hover:text-white cursor-pointer capitalize px-3 text-xs  rounded-sm">
       {icon}
       <p className={cla}>{title}</p>
-    </div>
+    </p>
   );
 };
 

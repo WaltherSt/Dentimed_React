@@ -7,7 +7,7 @@ interface ItemMenu {
 
 const ItemMenu: React.FC<ItemMenu> = ({ name, icon }) => {
   return (
-    <a href="home" className="flex gap-2 p-3 text-gray-400  hover:bg-sky-400 hover:text-white duration-100 shadow-sm">
+    <a href="home" className="flex gap-3 px-4 py-3 text-gray-400  hover:bg-sky-400 hover:text-white duration-100 shadow-sm">
       {" "}
       {icon} {name}
     </a>

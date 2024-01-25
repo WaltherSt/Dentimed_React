@@ -12,7 +12,7 @@ const ItemCalendar: FunctionComponent<Props> = ({
   meets = 0,
   activeIcon,
 }) => {
-  const classActive = activeIcon
+  const classHeader = activeIcon
     ? "flex justify-center h-full items-center bg-black text-white w-full text-5xl text-center"
     : "flex justify-center h-full items-center hover:bg-sky-50 w-full text-5xl text-center";
 
@@ -20,10 +20,11 @@ const ItemCalendar: FunctionComponent<Props> = ({
     return (
       <div className=" flex w-28 h-28 cursor-pointer duration-200 shadow-lg">
         <div className="flex flex-col justify-between w-full ">
-          <p className={classActive}>{day}</p>
+          <p className={classHeader}>{day}</p>
 
           <div className="flex gap-2 text-black rounded-sm justify-center items-center border-t-3 border-dentimed-blue">
             <TimeIcon />
+
             <a className="text-sm flex items-center py-2" href="home">
               {3 + meets} citas
             </a>

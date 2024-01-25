@@ -30,13 +30,14 @@ const Profile: FunctionComponent<ProfileProps> = ({ srcImage }) => {
       {accordion ? (
         <div className="absolute text-gray-400 bg-white w-full mt-4 shadow-lg">
           <div className="border-gray-100">
-            <LiProfile title="perfil" icon={<UserIcon />} high="4" />
-            <LiProfile title="configuración" icon={<SettingIcon />} high="4" />
+            <LiProfile title="perfil" icon={<UserIcon />} height={4} />
+            <LiProfile title="configuración" icon={<SettingIcon />} height={4} />
           </div>
 
           <div className="border-t-3 border-gray-100">
-            <LiProfile title="log out" icon={<LogOutIcon />} high="5" />
+            <LiProfile title="log out" icon={<LogOutIcon />} height={5} />
           </div>
+
         </div>
       ) : null}
     </div>

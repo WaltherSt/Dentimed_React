@@ -10,12 +10,12 @@ function Doctor_card() {
 
       <div className="p-3 pt-5 w-72">
         <h1 className="font-normal text-dentimed-blue">Nombre</h1>
-        <h2 className="">Cristian Camilo Torres Trujillo</h2>
+        <h2 className="capitalize">cristian camilo torres trujillo</h2>
       </div>
 
       <div className="p-3 pb-5 w-72">
         <h1 className="font-normal text-dentimed-blue">Especialidad</h1>
-        <h2 className="">ODONTOLOGO</h2>
+        <h2 className="capitalize">odontologo</h2>
       </div>
 
     </div>

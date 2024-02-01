@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 
-interface ArrowTopProps {}
+interface XMarkProps {}
 
-const ArrowTop: FunctionComponent<ArrowTopProps> = () => {
+const XMark: FunctionComponent<XMarkProps> = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,10 +15,10 @@ const ArrowTop: FunctionComponent<ArrowTopProps> = () => {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="m4.5 15.75 7.5-7.5 7.5 7.5"
+        d="M6 18 18 6M6 6l12 12"
       />
     </svg>
   );
 };
 
-export default ArrowTop;
+export default XMark;

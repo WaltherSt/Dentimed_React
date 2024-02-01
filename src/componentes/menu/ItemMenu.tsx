@@ -1,16 +1,25 @@
 import { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 
 interface ItemMenu {
   name: string;
   icon: ReactNode;
+  path: string;
 }
 
-const ItemMenu: React.FC<ItemMenu> = ({ name, icon }) => {
+const ItemMenu: React.FC<ItemMenu> = ({ name, icon, path }) => {
   return (
-    <a href="home" className="flex gap-3 px-4 py-3 text-gray-400  hover:bg-sky-400 hover:text-white duration-100 shadow-sm">
+    <NavLink
+      to={path}
+      className={({ isActive }) =>
+        isActive
+          ? "flex gap-3 px-4 py-3 text-white bg-dentimed-blue duration-100"
+          : "flex gap-3 px-4 py-3 text-gray-600 hover:bg-gray-100 duration-100"
+      }
+    >
       {" "}
       {icon} {name}
-    </a>
+    </NavLink>
   );
 };
 

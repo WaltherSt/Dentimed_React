@@ -9,7 +9,7 @@ export default class DeleteIcon extends Component {
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="w-6 h-6 text-red-400 cursor-pointer hover:text-red-600"
+        className="w-6 h-6 "
       >
         <path
           strokeLinecap="round"

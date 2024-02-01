@@ -3,6 +3,7 @@ import Button from "./componentes/button/Button";
 import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 
+import dataPacientes from "./assets/data/pacientes.json";
 import Doctor_card from "./componentes/card-Doctor/Doctor_card";
 import CardService from "./componentes/card-service/CardService";
 import DateAppointment from "./componentes/date-Appointment/DateAppointment";
@@ -15,6 +16,7 @@ import ButtonLogin from "./componentes/navbar/ButtonLogin";
 import NavBar from "./componentes/navbar/NavBar";
 import Profile from "./componentes/profile/Profile";
 import Table from "./componentes/tables/Table";
+import { PacienteI } from "./interfaces/PacienteI";
 
 export default function App() {
   const lista = [
@@ -27,6 +29,8 @@ export default function App() {
   const titulo = "Implantes Dentales";
   const lista2 = ["Inicio", "Servicios", "Blog"];
   const lista3 = ["Citas", "Pagos", "Agendar"];
+
+  const items: PacienteI[] = dataPacientes;
 
 
   return (
@@ -61,9 +65,10 @@ export default function App() {
       <Profile srcImage="https://media.istockphoto.com/id/1317241131/es/foto/imagen-de-estudio-de-una-joven-empresaria-confiada-posando-sobre-un-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=PkLplO4CdvIgn1O13k4o_3_x5Igaopf8M9llahm4BV0=" />
 
       <Doctor_card />
-      <Table />
+      <Table items={items}/>
 
-      <div className="w-full mx-2">P</div>
+
+      <div className="w-full mx-2">PT</div>
     </div>
   );
 }

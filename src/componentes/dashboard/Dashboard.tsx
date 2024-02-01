@@ -1,13 +1,12 @@
 import { FunctionComponent, useState } from "react";
 import { Outlet } from "react-router-dom";
-import Menu from "../componentes/menu/Menu";
-import Profile from "../componentes/profile/Profile";
+import Menu from "../menu/Menu";
+import Profile from "../profile/Profile";
 
-interface DentistProps {}
+interface DashboardProps {}
 
-const Dentist: FunctionComponent<DentistProps> = () => {
-  const [modal, setModal] = useState(false);
-
+const Dashboard: FunctionComponent<DashboardProps> = () => {
+  const [modal, setModal] = useState<boolean>(false);
   return (
     <div className="flex flex-row bg-gray-50  h-screen">
       <div className="">
@@ -29,4 +28,4 @@ const Dentist: FunctionComponent<DentistProps> = () => {
   );
 };
 
-export default Dentist;
+export default Dashboard;

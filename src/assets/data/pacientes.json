@@ -1,0 +1,106 @@
+[
+  {
+    "documento": "987654321",
+    "paciente": "Juan Pérez",
+    "telefono": "555-1234",
+    "correo": "juan.perez@example.com",
+    "direccion": "Calle Principal 123",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "María González",
+    "telefono": "555-5678",
+    "correo": "maria.gonzalez@example.com",
+    "direccion": "Avenida Central 456",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Carlos Rodríguez",
+    "telefono": "555-9876",
+    "correo": "carlos.rodriguez@example.com",
+    "direccion": "Calle Secundaria 789",
+    "status": "Inactivo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Ana Martínez",
+    "telefono": "555-4321",
+    "correo": "ana.martinez@example.com",
+    "direccion": "Plaza Principal 321",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Luis Hernández",
+    "telefono": "555-8765",
+    "correo": "luis.hernandez@example.com",
+    "direccion": "Calle Peatonal 654",
+    "status": "Inactivo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Juan Pérez",
+    "telefono": "555-1234",
+    "correo": "juan.perez@example.com",
+    "direccion": "Calle Principal 123",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "María González",
+    "telefono": "555-5678",
+    "correo": "maria.gonzalez@example.com",
+    "direccion": "Avenida Central 456",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Carlos Rodríguez",
+    "telefono": "555-9876",
+    "correo": "carlos.rodriguez@example.com",
+    "direccion": "Calle Secundaria 789",
+    "status": "Inactivo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Ana Martínez",
+    "telefono": "555-4321",
+    "correo": "ana.martinez@example.com",
+    "direccion": "Plaza Principal 321",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Luis Hernández",
+    "telefono": "555-8765",
+    "correo": "luis.hernandez@example.com",
+    "direccion": "Calle Peatonal 654",
+    "status": "Inactivo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Juan Pérez",
+    "telefono": "555-1234",
+    "correo": "juan.perez@example.com",
+    "direccion": "Calle Principal 123",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "María González",
+    "telefono": "555-5678",
+    "correo": "maria.gonzalez@example.com",
+    "direccion": "Avenida Central 456",
+    "status": "Activo"
+  },
+  {
+    "documento": "987654321",
+    "paciente": "Carlos Rodríguez",
+    "telefono": "555-9876",
+    "correo": "carlos.rodriguez@example.com",
+    "direccion": "Calle Secundaria 789",
+    "status": "Inactivo"
+  }
+]

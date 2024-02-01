@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 import ItemNav from "./ItemNav";
 import Logo from "./Logo";
 
@@ -11,7 +12,9 @@ const NavBar: React.FC<NavBar> = ({ list, component }) => {
   return (
     <div className=" flex w-full shadow-md font-lexed justify-between items-center h-16 px-4">
       <div>
-        <Logo />
+        <NavLink to="/">
+          <Logo />
+        </NavLink>
       </div>
       <div className="flex gap-16">
         {list.map((item) => (

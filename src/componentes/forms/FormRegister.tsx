@@ -4,10 +4,11 @@ import Select from "./Select";
 
 export default function FormRegister() {
   const lista = ["Masculino", "Femenino"];
+
   return (
     <form
       action=""
-      className="flex flex-col gap-3 w-96 shadow-large  p-5 h-full rounded-lg"
+      className="flex flex-col gap-3 w-96 h-[450px] shadow-large  p-5 rounded-lg bg-white z-40 inset-x-1/2 "
     >
       <Input placeholder="Nombres" type="text" />
       <Input placeholder="Apellidos" type="text" />{" "}
@@ -17,7 +18,7 @@ export default function FormRegister() {
       <Input placeholder="Fecha de nacimiento" type="date" />{" "}
       <Input placeholder="Contraseña" type="password" />
       <div className="w-full">
-        <Button label="Registrar" background="Primary" />
+        <Button label="Crear" background="Primary"/>
       </div>
     </form>
   );

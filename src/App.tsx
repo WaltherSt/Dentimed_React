@@ -1,5 +1,5 @@
 import Button from "./componentes/button/Button";
-import Calendar from "./componentes/calendar/Calendar";
+
 import Blog from "./componentes/card-blog/Blog";
 import Sede from "./componentes/card-sede/Sede";
 
@@ -61,7 +61,6 @@ export default function App() {
       <Profile srcImage="https://media.istockphoto.com/id/1317241131/es/foto/imagen-de-estudio-de-una-joven-empresaria-confiada-posando-sobre-un-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=PkLplO4CdvIgn1O13k4o_3_x5Igaopf8M9llahm4BV0=" />
 
       <Doctor_card />
-      <Calendar/>
       <Table />
 
       <div className="w-full mx-2">P</div>

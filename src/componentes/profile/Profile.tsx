@@ -16,19 +16,19 @@ const Profile: FunctionComponent<ProfileProps> = ({ srcImage }) => {
   }
 
   return (
-    <div className="relative rounded-md px-4">
-      <div className="flex gap-4 h-12">
+    <div className="relative rounded-md px-2 z-50">
+      <div className="flex gap-4 h-14">
         <div className="flex flex-col justify-center text-right">
           <p className="text-sm">Monica Martinez</p>
           <p className="text-xs text-gray-400">Odontologo</p>
         </div>
         <button className=" cursor-pointer" onClick={handleAccordion}>
-          <img className="h-12 w-12 rounded-full" src={srcImage} alt="doctor" />
+          <img className="h-10 w-10 rounded-full " src={srcImage} alt="doctor" />
         </button>
       </div>
 
       {accordion ? (
-        <div className="absolute text-gray-400 bg-white w-full mt-4 shadow-lg">
+        <div className="absolute text-gray-400 bg-white w-full mt-4 shadow-lg border-t border-gray-50">
           <div className="border-gray-100">
             <LiProfile title="perfil" icon={<UserIcon />} height={4} />
             <LiProfile

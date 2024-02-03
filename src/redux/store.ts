@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "./features/counterSlice";
+import modalSlice from "./features/modalPacienteSlice";
 
 export const store = configureStore({
-  reducer: { counterSlice },
+  reducer: { counterSlice,modalSlice },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

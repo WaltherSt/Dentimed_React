@@ -1,0 +1,21 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  value: false,
+};
+
+export const modalSlice = createSlice({
+  name: "modal-pacientes",
+  initialState,
+  reducers: {
+    open: (state) => {
+      state.value = true;
+    },
+    close: (state) => {
+      state.value = false;
+    },
+  },
+});
+
+export const { open, close } = modalSlice.actions;
+export default modalSlice.reducer;

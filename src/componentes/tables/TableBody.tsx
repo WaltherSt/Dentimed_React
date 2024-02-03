@@ -1,26 +1,21 @@
 import { FunctionComponent } from "react";
+import { PacienteI } from "../../interfaces/PacienteI";
 import DeleteIcon from "../icons/DeleteIcon";
 import EditIconII from "../icons/EditIconII";
 import EyeIcom from "../icons/EyeIcon";
 
-interface Paciente {
-  documento: string;
-  paciente: string;
-  telefono: string;
-  correo: string;
-  dirección: string;
-  status: string;
-}
-
 interface Props {
-  data: Paciente[];
+  data: PacienteI[];
 }
 
 const TableBody: FunctionComponent<Props> = ({ data }) => {
   return (
     <tbody>
       {data.map((item) => (
-        <tr className="hover:bg-gray-50" key={item.telefono}>
+        <tr
+          className="hover:bg-gray-50"
+          key={item.documento + Math.random().toString()}
+        >
           {Object.values(item).map((el) => (
             <td
               className="py-2 px-5 border-b text-gray-400 cursor-pointer text-center "

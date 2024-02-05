@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { Provider } from "react-redux";
-import { store } from "../../redux/store";
+import { useAppSelector } from "../../redux/hooks";
+import Select from "../select/Select";
 import RowPrimary from "./RowPrimary";
 import RowSecundary from "./RowSecundary";
 
@@ -22,8 +22,21 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
 
   // }
 
+  const estados = [
+    "Sano",
+    "Caries",
+    "Obturado",
+    "Extracción",
+    "Extraido",
+    "Sin Erupcionar",
+    "Sellante",
+    "Erupcionado",
+  ];
+
+  const id = useAppSelector((state) => state.toothSelectSlice.value);
+
   return (
-    <Provider store={store}>
+    <div className="">
       <div className="grid grid-rows-4 gap-8">
         <div className=" grid grid-cols-2 gap-10">
           <RowPrimary nums={row1} />
@@ -36,7 +49,38 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
           <RowPrimary nums={row4_2} />
         </div>
       </div>
-    </Provider>
+
+      <div className=" flex mt-10 justify-center items-center gap-10">
+        <div className="flex flex-col w-60 gap-1">
+          <label htmlFor="id" className="font-semibold text-gray-600">
+            Pieza dental seleccionada
+          </label>
+          <input
+            className="p-2 rounded-md bg-gray-50 "
+            type="text"
+            name="id"
+            value={id}
+            disabled
+          />
+        </div>
+        <div className="flex flex-col w-60 gap-1">
+          <label className="font-semibold text-gray-600" htmlFor="">Estado de la pieza</label>
+          <Select list={estados} />
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <label htmlFor="observaciones" className="font-semibold text-gray-600">
+          Observaciones :
+        </label>
+        <textarea
+          className="border-1 w-full p-2"
+          name="observaciones"
+          id=""
+          rows={10}
+        ></textarea>
+      </div>
+    </div>
   );
 };
 

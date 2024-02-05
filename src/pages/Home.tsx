@@ -26,7 +26,11 @@ const Home: FunctionComponent<HomeProps> = () => {
           Decrement
         </button>
       </div>
+
+
     </div>
+
+
   );
 };
 

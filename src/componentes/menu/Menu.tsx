@@ -1,10 +1,9 @@
 import { FunctionComponent } from "react";
 import { NavLink } from "react-router-dom";
 import AgendarIcon from "../icons/AgendarIcon";
-import BillIcon from "../icons/BillIcon";
 import CalendarIcon from "../icons/CalendarIcon";
-import HistoryIcon from "../icons/HistoryIcon";
-import InventoryIcon from "../icons/InventoryIcon";
+import Cotizaricon from "../icons/CotizarIcon";
+import History from "../icons/History";
 import PatientIcon from "../icons/PatientIcon";
 import Logo from "../navbar/Logo";
 import ItemMenu from "./ItemMenu";
@@ -22,6 +21,11 @@ const Menu: FunctionComponent<MenuProps> = () => {
 
       <ItemMenu icon={<AgendarIcon />} name="Agenda" path="/dentista/agenda" />
       <ItemMenu
+        icon={<History />}
+        name="Historias Clinicas"
+        path="/inventario"
+      />
+      <ItemMenu
         icon={<CalendarIcon />}
         name="Calendario"
         path="/dentista/calendario"
@@ -31,13 +35,11 @@ const Menu: FunctionComponent<MenuProps> = () => {
         name="Pacientes"
         path="/dentista/pacientes"
       />
-      <ItemMenu icon={<InventoryIcon />} name="Inventario" path="/inventario" />
-      <ItemMenu icon={<BillIcon />} name="Facturación" path="/facturacion" />
 
       <ItemMenu
-        icon={<HistoryIcon />}
-        name="Historia Dental"
-        path="/historia"
+        icon={<Cotizaricon />}
+        name="Cotizaciones"
+        path="/facturacion"
       />
     </div>
   );

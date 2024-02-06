@@ -8,10 +8,7 @@ interface DateAppointment {
 }
 
 const DateAppointment: React.FC<DateAppointment> = ({
-  nameDoctor,
-  place,
-  date,
-  time,
+  nameDoctor, place, date, time,
 }) => {
   return (
     <div
@@ -34,7 +31,7 @@ const DateAppointment: React.FC<DateAppointment> = ({
           className="bg-sky-300 text-white rounded-md my-2.5 px-2 py-1
       hover:bg-dentimed-blue hover:-translate-x-0.5 duration-300 cursor-pointer"
         >
-          Reprogramar
+          Reprogramar 
         </button>
         <button
           className="bg-red-300 text-white px-3 rounded-md my-2.5

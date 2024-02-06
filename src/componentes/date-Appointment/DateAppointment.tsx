@@ -8,10 +8,7 @@ interface DateAppointment {
 }
 
 const DateAppointment: React.FC<DateAppointment> = ({
-  nameDoctor,
-  place,
-  date,
-  time,
+  nameDoctor, place, date, time,
 }) => {
   return (
     <div

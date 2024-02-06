@@ -23,5 +23,9 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui(), 
+    // eslint-disable-next-line no-undef
+    //require("@tailwindcss/forms")
+  ], 
 };

@@ -17,6 +17,7 @@ import NavBar from "./componentes/navbar/NavBar";
 import Profile from "./componentes/profile/Profile";
 import Table from "./componentes/tables/Table";
 import { PacienteI } from "./interfaces/PacienteI";
+import HealthForm from "./componentes/HealthForm/HealthForm";
 
 export default function App() {
   const lista = [
@@ -66,6 +67,7 @@ export default function App() {
 
       <Doctor_card />
       <Table items={items}/>
+      <HealthForm/>
 
 
       <div className="w-full mx-2">PT</div>

@@ -1,4 +1,3 @@
-/*srfe*/
 import Dentista from "../card-Doctor/img/Dentista.jpeg";
 
 function Doctor_card() {

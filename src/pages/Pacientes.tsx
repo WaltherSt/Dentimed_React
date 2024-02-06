@@ -1,5 +1,5 @@
-import { FunctionComponent, MouseEventHandler } from "react";
-import { useOutletContext } from "react-router-dom";
+import { FunctionComponent } from "react";
+
 import dataPacientes from "../assets/data/pacientes.json";
 import FormRegister from "../componentes/forms/FormRegister";
 import AddUser from "../componentes/icons/AddUser";
@@ -7,28 +7,15 @@ import ListIcon from "../componentes/icons/ListIcon";
 import Select from "../componentes/select/Select";
 import Table from "../componentes/tables/Table";
 import { PacienteI } from "../interfaces/PacienteI";
+import { close, open } from "../redux/features/modalPacienteSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 interface PacientesProps {}
 
-interface ModalType {
-  modal: boolean;
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 const Pacientes: FunctionComponent<PacientesProps> = () => {
-  const { modal, setModal } = useOutletContext<ModalType>();
-
   const items: PacienteI[] = dataPacientes;
-
-  function openModal() {
-    setModal(!modal);
-  }
-
-  function closeModal(e: MouseEventHandler<HTMLButtonElement>) {
-    if (e.target?.id == "contentModal") {
-      setModal(!modal);
-    }
-  }
+  const modal = useAppSelector((state) => state.modalSlice.value);
+  const dispatch = useAppDispatch();
 
   return (
     <div className="relative flex items-start justify-center">
@@ -36,7 +23,7 @@ const Pacientes: FunctionComponent<PacientesProps> = () => {
         <button
           id="contentModal"
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-70"
-          onClick={closeModal}
+          onClick={() => dispatch(close())}
         >
           <FormRegister />
         </button>
@@ -60,13 +47,14 @@ const Pacientes: FunctionComponent<PacientesProps> = () => {
           <div className="flex gap-5 justify-end col-span-2">
             <button
               className="flex items-center text-white px-2 rounded-md border-dentimed-blue bg-sky-300  hover:bg-sky-400 capitalize gap-2"
-              onClick={openModal}
+              onClick={() => dispatch(open())}
             >
               nuevo
               <AddUser />
             </button>
           </div>
         </div>
+
         <Table items={items} />
       </div>
     </div>

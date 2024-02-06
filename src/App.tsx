@@ -1,3 +1,4 @@
+
 import Button from "./componentes/button/Button";
 
 import Blog from "./componentes/card-blog/Blog";
@@ -19,22 +20,16 @@ import Table from "./componentes/tables/Table";
 import { PacienteI } from "./interfaces/PacienteI";
 import HealthForm from "./componentes/HealthForm/HealthForm";
 
+import { Provider } from "react-redux";
+import Odontograma from "./componentes/odontograma/Odontograma";
+import Home from "./pages/Home";
+import { Providers } from "./redux/Provider";
+import { store } from "./redux/store";
+
+
 export default function App() {
-  const lista = [
-    "Implantes dentales All-On-4®",
-    "Implantes dentales All-On-4®",
-    "Implantes dentales All-On-4®",
-    "Implantes dentales All-On-4®",
-    "Implantes dentales All-On-4®",
-  ];
-  const titulo = "Implantes Dentales";
-  const lista2 = ["Inicio", "Servicios", "Blog"];
-  const lista3 = ["Citas", "Pagos", "Agendar"];
-
-  const items: PacienteI[] = dataPacientes;
-
-
   return (
+
     <div className="flex gap-8 flex-wrap justify-center">
       <NavBar
         list={lista3}
@@ -72,5 +67,20 @@ export default function App() {
 
       <div className="w-full mx-2">PT</div>
     </div>
+
+    <>
+      <Providers>
+        <Home />
+      </Providers>
+      {/* agregar los componentes que desee visualizar */}
+
+      <div className="w-full flex justify-center">
+        <Provider store={store}>
+
+          <Odontograma />
+        </Provider>
+      </div>
+    </>
+
   );
 }

@@ -3,7 +3,7 @@ import ArrowBotton from "../icons/ArrowBottom";
 import ArrowTop from "../icons/ArrowTop";
 
 interface SelectProps {
-  label: string;
+  label?: string;
   list: string[];
 }
 
@@ -21,24 +21,31 @@ const Select: FunctionComponent<SelectProps> = ({ label, list }) => {
   }
 
   return (
-    <div className="flex flex-col relative w-40">
+    <div className="flex flex-col relative w-full">
       <button
         className="flex gap-5 items-center px-3 bg-gray-50 rounded-md"
         onClick={handleActive}
       >
         <div className="flex flex-col w-full text-start ">
-          <p className="capitalize text-[10px] text-gray-500">{label}</p>
-          <p className="capitalize text-gray-500">{position}</p>
+          {label ? (
+            <p className="capitalize text-[10px] pt-1 ">{label}</p>
+          ) : null}
+
+          {label ? (
+            <p className="capitalize text-gray-500">{position}</p>
+          ) : (
+            <p className="capitalize text-gray-500 p-2">{position}</p>
+          )}
         </div>
 
         {active ? <ArrowTop /> : <ArrowBotton />}
       </button>
 
       {active ? (
-        <div className=" flex flex-col mt-12 absolute bg-white w-full">
+        <div className=" flex flex-col mt-12 absolute bg-white w-full shadow ">
           {list.map((e) => (
             <button
-              className="p-2 capitalize cursor-pointer hover:bg-gray-200 text-black rounded-md bg-white text-start"
+              className="p-2 capitalize cursor-pointer hover:bg-gray-200 text-black rounded-md bg-white text-start pr-1 border-b-1 border-gray-100"
               key={e}
               onClick={handlePosition}
             >

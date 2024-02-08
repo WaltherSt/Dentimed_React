@@ -4,8 +4,8 @@ interface CariesProps {}
 
 const Caries: FunctionComponent<CariesProps> = () => {
   return (
-    <div className="w-10 h-10 flex items-center">
-      <div className="font-normal pl-[1px]">x</div>
+    <div className="flex w-full h-full absolute top-[6px] pl-[1px]">
+      <div className="font-normal">x</div>
     </div>
   );
 };

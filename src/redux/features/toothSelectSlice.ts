@@ -1,17 +1,24 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: 0,
+  id: 0,
+  status: "Sano",
 };
 const toothSelectSlice = createSlice({
   name: "tooth",
   initialState,
   reducers: {
     setIdTooth: (state, { payload: { id } }: PayloadAction<{ id: number }>) => {
-      state.value = id;
+      state.id = id;
+    },
+    setStatus: (
+      state,
+      { payload: { estado } }: PayloadAction<{ estado: string }>
+    ) => {
+      state.status = estado;
     },
   },
 });
 
-export const { setIdTooth } = toothSelectSlice.actions;
+export const { setIdTooth, setStatus } = toothSelectSlice.actions;
 export default toothSelectSlice.reducer;

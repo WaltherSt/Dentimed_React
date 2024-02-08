@@ -1,5 +1,8 @@
-import { FunctionComponent } from "react";
-import { useAppSelector } from "../../redux/hooks";
+import { FunctionComponent, useEffect } from "react";
+import { addTooth } from "../../redux/features/teethContainerSlice";
+import { setStatus } from "../../redux/features/toothSelectSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import Button from "../button/Button";
 import Select from "../select/Select";
 import RowPrimary from "./RowPrimary";
 import RowSecundary from "./RowSecundary";
@@ -15,13 +18,6 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
   const row2 = [55, 54, 53, 52, 51, 61, 62, 63, 64, 65];
   const row3 = [85, 84, 83, 82, 81, 71, 72, 73, 74, 75];
 
-  // interface stateTooth{
-  //   id:number;
-  //   state:number;
-  //   comment?:string;
-
-  // }
-
   const estados = [
     "Sano",
     "Caries",
@@ -30,10 +26,20 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
     "Extraido",
     "Sin Erupcionar",
     "Sellante",
+    "PPF",
     "Erupcionado",
   ];
 
-  const id = useAppSelector((state) => state.toothSelectSlice.value);
+  const dispatch = useAppDispatch();
+  const { id, status } = useAppSelector((state) => state.toothSelectSlice);
+
+  useEffect(() => {
+    dispatch(addTooth({ id, status }));
+  }, [status]);
+
+  function setStateTooth(e: MouseEvent) {
+    dispatch(setStatus({ estado: e.currentTarget?.dataset.value }));
+  }
 
   return (
     <div className="">
@@ -52,7 +58,7 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
 
       <div className=" flex mt-10 justify-center items-center gap-10">
         <div className="flex flex-col w-60 gap-1">
-          <label htmlFor="id" className="font-semibold text-gray-600">
+          <label htmlFor="id" className="font-normal text-gray-600">
             Pieza dental seleccionada
           </label>
           <input
@@ -64,13 +70,15 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
           />
         </div>
         <div className="flex flex-col w-60 gap-1">
-          <label className="font-semibold text-gray-600" htmlFor="">Estado de la pieza</label>
-          <Select list={estados} />
+          <label className="font-normal text-gray-600">
+            Estado de la pieza
+          </label>
+          <Select list={estados} onClick={(e) => setStateTooth(e)} />
         </div>
       </div>
 
       <div className="mt-5">
-        <label htmlFor="observaciones" className="font-semibold text-gray-600">
+        <label htmlFor="observaciones" className="font-normal text-gray-600">
           Observaciones :
         </label>
         <textarea
@@ -79,6 +87,12 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
           id=""
           rows={10}
         ></textarea>
+      </div>
+
+      <div className="flex justify-end mt-1">
+        <div className="w-full md:w-48">
+          <Button label="Guardar" background="Primary" />
+        </div>
       </div>
     </div>
   );

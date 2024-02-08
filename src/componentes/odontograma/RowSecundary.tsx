@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-
 import Item from "./Item";
 
 interface RowSecundaryProps {

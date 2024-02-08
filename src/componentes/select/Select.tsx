@@ -5,9 +5,10 @@ import ArrowTop from "../icons/ArrowTop";
 interface SelectProps {
   label?: string;
   list: string[];
+  onClick?: (event: MouseEvent) => void;
 }
 
-const Select: FunctionComponent<SelectProps> = ({ label, list }) => {
+const Select: FunctionComponent<SelectProps> = ({ label, list, onClick }) => {
   const [active, setActive] = useState(false);
   const [position, setPosition] = useState(list[0]);
 
@@ -16,8 +17,9 @@ const Select: FunctionComponent<SelectProps> = ({ label, list }) => {
   }
 
   function handlePosition(e: MouseEvent) {
-    setPosition(e.target.innerText);
+    setPosition((e.target as HTMLButtonElement).innerText);
     handleActive();
+    onClick(e);
   }
 
   return (
@@ -48,6 +50,7 @@ const Select: FunctionComponent<SelectProps> = ({ label, list }) => {
               className="p-2 capitalize cursor-pointer hover:bg-gray-200 text-black rounded-md bg-white text-start pr-1 border-b-1 border-gray-100"
               key={e}
               onClick={handlePosition}
+              data-value={e}
             >
               {e}
             </button>

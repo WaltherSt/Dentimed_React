@@ -76,7 +76,6 @@ export default function App() {
 
       <div className="w-full flex justify-center">
         <Provider store={store}>
-
           <Odontograma />
         </Provider>
       </div>

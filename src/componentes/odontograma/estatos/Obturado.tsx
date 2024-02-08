@@ -5,9 +5,9 @@ interface ObturadoProps {}
 
 const Obturado: FunctionComponent<ObturadoProps> = () => {
   return (
-    <div>
+    <div className="absolute top-[3px]">
       <div className="w-10 h-10 flex justify-center">
-        <div className="w-4 pt-[3px] ml-[1px]">
+        <div className="w-4">
           <ObturadoIcon />
         </div>
       </div>

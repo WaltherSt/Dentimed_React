@@ -5,7 +5,7 @@ interface ExtraidoProps {}
 const Extraido: FunctionComponent<ExtraidoProps> = () => {
   return (
     <div>
-      <div className="w-10 h-10 flex ">
+      <div className="w-10 h-10 flex absolute top-0 ">
         <div className="h-10 w-5 border-r-3 border-black ml-[1.5px]"></div>
       </div>
     </div>

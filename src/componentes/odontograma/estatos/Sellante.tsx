@@ -5,7 +5,7 @@ interface SellanteProps {}
 const Sellante: FunctionComponent<SellanteProps> = () => {
   return (
     <div>
-      <div className="w-10 h-10 flex justify-center items-center ">
+      <div className="w-10 h-10 flex justify-center items-center absolute top-0 ">
         <p className="text-xs font-normal">FS</p>
       </div>
     </div>

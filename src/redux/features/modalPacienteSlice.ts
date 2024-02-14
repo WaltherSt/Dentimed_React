@@ -8,14 +8,11 @@ export const modalSlice = createSlice({
   name: "modal-pacientes",
   initialState,
   reducers: {
-    open: (state) => {
-      state.value = true;
-    },
-    close: (state) => {
-      state.value = false;
+    changeStatus: (state) => {
+      state.value = !state.value;
     },
   },
 });
 
-export const { open, close } = modalSlice.actions;
+export const { changeStatus } = modalSlice.actions;
 export default modalSlice.reducer;

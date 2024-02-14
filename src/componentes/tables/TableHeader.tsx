@@ -8,7 +8,7 @@ const TableHeader: FunctionComponent<Props> = ({ headers }) => {
   return (
     <thead className="bg-dentimed-blue text-white">
       <tr>
-        {headers.map((title) => (
+        {headers?.map((title) => (
           <th className="p-2 uppercase font-bold text-center" key={title}>
             {title}
           </th>

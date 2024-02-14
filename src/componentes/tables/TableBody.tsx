@@ -1,11 +1,12 @@
 import { FunctionComponent } from "react";
-import { PacienteI } from "../../interfaces/PacienteI";
+
+import { Patient } from "../../redux/service/patientApi";
 import DeleteIcon from "../icons/DeleteIcon";
 import EditIconII from "../icons/EditIconII";
 import EyeIcom from "../icons/EyeIcon";
 
 interface Props {
-  data: PacienteI[];
+  data: Patient[];
 }
 
 const TableBody: FunctionComponent<Props> = ({ data }) => {
@@ -14,11 +15,11 @@ const TableBody: FunctionComponent<Props> = ({ data }) => {
       {data.map((item) => (
         <tr
           className="hover:bg-gray-50"
-          key={item.documento + Math.random().toString()}
+          key={item.cedula}
         >
-          {Object.values(item).map((el) => (
+          {Object?.values(item).map((el) => (
             <td
-              className="py-2 px-5 border-b text-gray-400 cursor-pointer text-center "
+              className="py-2 px-5 border-b text-gray-400 cursor-pointer "
               key={el}
             >
               {el}

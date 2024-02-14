@@ -1,8 +1,16 @@
 interface SetInput {
-  placeholder: string;
+  placeholder?: string;
   type: string;
+  name: string;
 }
-const Input: React.FC<SetInput> = ({ placeholder, type }) => {
-  return <input className="p-2" type={type} placeholder={placeholder} />;
+const Input: React.FC<SetInput> = ({ placeholder, type, name }) => {
+  return (
+    <input
+      className="p-2 w-full"
+      type={type}
+      placeholder={placeholder}
+      name={name}
+    />
+  );
 };
 export default Input;

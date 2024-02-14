@@ -1,22 +1,15 @@
 import { FunctionComponent, useEffect } from "react";
-import { addTooth } from "../../redux/features/teethContainerSlice";
+import { updateTooth } from "../../redux/features/teethObjectSlice";
 import { setStatus } from "../../redux/features/toothSelectSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Button from "../button/Button";
 import Select from "../select/Select";
-import RowPrimary from "./RowPrimary";
-import RowSecundary from "./RowSecundary";
+import Item from "./Item";
 
 interface OdontogramaProps {}
 
 const Odontograma: FunctionComponent<OdontogramaProps> = () => {
-  const row1 = Array.from(Array(8), (_, i) => 18 - i);
-  const row1_2 = Array.from(Array(8), (_, i) => i + 21);
-  const row4 = Array.from(Array(8), (_, i) => 48 - i);
-  const row4_2 = Array.from(Array(8), (_, i) => i + 31);
-
-  const row2 = [55, 54, 53, 52, 51, 61, 62, 63, 64, 65];
-  const row3 = [85, 84, 83, 82, 81, 71, 72, 73, 74, 75];
+  const arrayTeeth = useAppSelector((state) => state.teethObjectSlice);
 
   const estados = [
     "Sano",
@@ -34,7 +27,7 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
   const { id, status } = useAppSelector((state) => state.toothSelectSlice);
 
   useEffect(() => {
-    dispatch(addTooth({ id, status }));
+    dispatch(updateTooth({ id, status }));
   }, [status]);
 
   function setStateTooth(e: MouseEvent) {
@@ -43,16 +36,56 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
 
   return (
     <div className="">
-      <div className="grid grid-rows-4 gap-8">
-        <div className=" grid grid-cols-2 gap-10">
-          <RowPrimary nums={row1} />
-          <RowPrimary nums={row1_2} />
+      <div className=" grid grid-cols-2 gap-10 gap-x-16 gap-y-4 ">
+        <div className="grid grid-cols-8 gap-5">
+          {arrayTeeth.slice(0, 8).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
-        <RowSecundary nums={row2} />
-        <RowSecundary nums={row3} />
-        <div className=" grid grid-cols-2 gap-10">
-          <RowPrimary nums={row4} />
-          <RowPrimary nums={row4_2} />
+
+        <div className="grid grid-cols-8 gap-5">
+          {arrayTeeth.slice(8, 16).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-5 justify-items-end pl-[160px]">
+          {arrayTeeth.slice(16, 21).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-5 justify-items-start pr-[160px]">
+          {arrayTeeth.slice(21, 26).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-5 justify-items-end pl-[160px]">
+          {arrayTeeth
+            .slice(26, 31)
+            .map(({ id, state }) =>
+              id <= 85 && id >= 81 ? (
+                <Item key={id} num={id} condition={state} />
+              ) : null
+            )}
+        </div>
+        <div className="grid grid-cols-5 justify-items-start pr-[160px]">
+          {arrayTeeth.slice(31, 36).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-8 gap-5">
+          {arrayTeeth.slice(36, 44).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-8 gap-5">
+          {arrayTeeth.slice(44, 52).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
       </div>
 

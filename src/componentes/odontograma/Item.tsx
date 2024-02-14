@@ -17,24 +17,22 @@ interface ItemProps {
 const Item: FunctionComponent<ItemProps> = ({ num = 0, condition }) => {
   const dispach = useAppDispatch();
 
-  const estado =
-    condition === "Sano" ? null : condition === "Caries" ? (
-      <Caries />
-    ) : condition === "Obturado" ? (
-      <Obturado />
-    ) : condition === "Extracción" ? (
-      <Extraccion />
-    ) : condition === "Extraido" ? (
-      <Extraido />
-    ) : condition === "Sin Erupcionar" ? (
-      <SinErupcionar />
-    ) : condition === "Sellante" ? (
-      <Sellante />
-    ) : condition === "PPF" ? (
-      <Ppf />
-    ) : condition === "Erupcionado" ? (
-      <Erupcionado />
-    ) : null;
+  function statusTooth() {
+    const estado = [
+      { key: "Sana", value: null },
+      { key: "Caries", value: <Caries /> },
+      { key: "Obturado", value: <Obturado /> },
+      { key: "Extracción", value: <Extraccion /> },
+      { key: "Sin Erupcionar", value: <SinErupcionar /> },
+      { key: "Sellante", value: <Sellante /> },
+      { key: "PPF", value: <Ppf /> },
+      { key: "Erupcionado", value: <Erupcionado /> },
+      { key: "Extraido", value: <Extraido /> },
+
+    ];
+
+    return estado.find((e) => e.key === condition)?.value;
+  }
 
   return (
     <button
@@ -56,7 +54,7 @@ const Item: FunctionComponent<ItemProps> = ({ num = 0, condition }) => {
         <div className="flex justify-center items-center w-10 h-10 border-1 border-black rounded-full absolute inset-x-0 top-0">
           <div className="w-5 h-5 border-1 border-black rounded-full bg-white"></div>
         </div>
-        {estado}
+        {statusTooth()}
       </div>
     </button>
   );

@@ -19,6 +19,7 @@ const initialState: TeethObject[] = [
   { id: 24, state: "Sano" },
   { id: 25, state: "Sano" },
   { id: 26, state: "Sano" },
+  { id: 27, state: "Sano" },
   { id: 28, state: "Sano" },
   { id: 55, state: "Sano" },
   { id: 54, state: "Sano" },

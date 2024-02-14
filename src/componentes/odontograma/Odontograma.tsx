@@ -38,64 +38,54 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
     <div className="">
       <div className=" grid grid-cols-2 gap-10 gap-x-16 gap-y-4 ">
         <div className="grid grid-cols-8 gap-5">
-          {arrayTeeth.map(({ id, state }) =>
-            id > 18 ? null : <Item key={id} num={id} condition={state} />
-          )}
+          {arrayTeeth.slice(0, 8).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
 
         <div className="grid grid-cols-8 gap-5">
-          {arrayTeeth.map(({ id, state }) =>
-            id >= 21 && id <= 28 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth.slice(8, 16).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
 
         <div className="grid grid-cols-5 justify-items-end pl-[160px]">
-          {arrayTeeth.map(({ id, state }) =>
-            id >= 51 && id <= 55 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth.slice(16, 21).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
 
         <div className="grid grid-cols-5 justify-items-start pr-[160px]">
-          {arrayTeeth.map(({ id, state }) =>
-            id >= 61 && id <= 65 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth.slice(21, 26).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
 
         <div className="grid grid-cols-5 justify-items-end pl-[160px]">
-          {arrayTeeth.map(({ id, state }) =>
-            id <= 85 && id >= 81 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth
+            .slice(26, 31)
+            .map(({ id, state }) =>
+              id <= 85 && id >= 81 ? (
+                <Item key={id} num={id} condition={state} />
+              ) : null
+            )}
         </div>
         <div className="grid grid-cols-5 justify-items-start pr-[160px]">
-          {arrayTeeth.map(({ id, state }) =>
-            id >= 71 && id <= 75 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth.slice(31, 36).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
 
         <div className="grid grid-cols-8 gap-5">
-          {arrayTeeth.map(({ id, state }) =>
-            id <= 48 && id >= 41 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth.slice(36, 44).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
 
         <div className="grid grid-cols-8 gap-5">
-          {arrayTeeth.map(({ id, state }) =>
-            id >= 31 && id <= 38 ? (
-              <Item key={id} num={id} condition={state} />
-            ) : null
-          )}
+          {arrayTeeth.slice(44, 52).map(({ id, state }) => (
+            <Item key={id} num={id} condition={state} />
+          ))}
         </div>
       </div>
 

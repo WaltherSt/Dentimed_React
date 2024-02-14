@@ -11,9 +11,7 @@ interface CalendarV2Props {}
 const CalendarV2: FunctionComponent<CalendarV2Props> = () => {
   dayjs.locale(es);
 
-  const [date, setDate] = useState(
-    dayjs().set("date", 1).set("month", 0).set("year", 2024)
-  );
+  const [date, setDate] = useState(dayjs());
 
   const daysOfTheMonth = date.daysInMonth();
 
@@ -45,7 +43,7 @@ const CalendarV2: FunctionComponent<CalendarV2Props> = () => {
       itemsCalendar.push(
         <ItemCalendarV2
           day={i}
-          date={`${i}_${date.month()+1}_${date.year()}`}
+          date={`${i}_${date.month() + 1}_${date.year()}`}
           meets={i}
           selected={true}
           key={i}
@@ -55,7 +53,7 @@ const CalendarV2: FunctionComponent<CalendarV2Props> = () => {
       itemsCalendar.push(
         <ItemCalendarV2
           day={i}
-          date={`${i}_${date.month()+1}_${date.year()}`}
+          date={`${i}_${date.month() + 1}_${date.year()}`}
           meets={i}
           key={i}
         />
@@ -63,9 +61,16 @@ const CalendarV2: FunctionComponent<CalendarV2Props> = () => {
     }
   }
 
-  for (let i = 0; i < date.day() - 1; i++) {
+  const firsDay = date.set("D", 1).day() === 0 ? 7 : date.set("D", 1).day();
+  for (let i = 1; i < firsDay; i++) {
     itemsCalendar.unshift(
-      <ItemCalendarV2 day={null} meets={null} empty={true} key={32 + i} />
+      <ItemCalendarV2
+        day={null}
+        meets={null}
+        empty={true}
+        key={32 + i}
+        date={""}
+      />
     );
   }
 

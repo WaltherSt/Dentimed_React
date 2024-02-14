@@ -1,33 +1,25 @@
 import { FunctionComponent } from "react";
 
-import dataPacientes from "../assets/data/pacientes.json";
+import { Spinner } from "@nextui-org/react";
 import FormRegister from "../componentes/forms/FormRegister";
 import AddUser from "../componentes/icons/AddUser";
 import ListIcon from "../componentes/icons/ListIcon";
+import Modal from "../componentes/modal/Modal";
 import Select from "../componentes/select/Select";
 import Table from "../componentes/tables/Table";
-import { PacienteI } from "../interfaces/PacienteI";
-import { close, open } from "../redux/features/modalPacienteSlice";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-
+import useModal from "../hooks/useModal";
+import { changeStatus } from "../redux/features/modalPacienteSlice";
+import { useGetPatientsQuery } from "../redux/service/patientApi";
 interface PacientesProps {}
 
 const Pacientes: FunctionComponent<PacientesProps> = () => {
-  const items: PacienteI[] = dataPacientes;
-  const modal = useAppSelector((state) => state.modalSlice.value);
-  const dispatch = useAppDispatch();
+  const { data, error, isLoading } = useGetPatientsQuery(null);
+
+  const { dispatch } = useModal();
 
   return (
-    <div className="relative flex items-start justify-center">
-      {modal ? (
-        <button
-          id="contentModal"
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-70"
-          onClick={() => dispatch(close())}
-        >
-          <FormRegister />
-        </button>
-      ) : null}
+    <>
+      <Modal body={<FormRegister />} />
 
       <div className="w-full">
         <div className="flex gap-2 p-3 bg-white mb-2 shadow items-center">
@@ -47,7 +39,7 @@ const Pacientes: FunctionComponent<PacientesProps> = () => {
           <div className="flex gap-5 justify-end col-span-2">
             <button
               className="flex items-center text-white px-2 rounded-md border-dentimed-blue bg-sky-300  hover:bg-sky-400 capitalize gap-2"
-              onClick={() => dispatch(open())}
+              onClick={() => dispatch(changeStatus())}
             >
               nuevo
               <AddUser />
@@ -55,9 +47,17 @@ const Pacientes: FunctionComponent<PacientesProps> = () => {
           </div>
         </div>
 
-        <Table items={items} />
+        {error ? (
+          <>Oh no, there was an error</>
+        ) : isLoading ? (
+          <div className="w-full flex justify-center pt-5">
+            <Spinner size="lg" />
+          </div>
+        ) : data ? (
+          <Table items={data} />
+        ) : null}
       </div>
-    </div>
+    </>
   );
 };
 

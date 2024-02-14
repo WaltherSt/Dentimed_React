@@ -47,7 +47,7 @@ const Select: FunctionComponent<SelectProps> = ({ label, list, onClick }) => {
         <div className=" flex flex-col mt-12 absolute bg-white w-full shadow ">
           {list.map((e) => (
             <button
-              className="p-2 capitalize cursor-pointer hover:bg-gray-200 text-black rounded-md bg-white text-start pr-1 border-b-1 border-gray-100"
+              className="p-2  capitalize cursor-pointer hover:bg-gray-200 rounded-md bg-white text-start pr-1 border-b-1 border-gray-100"
               key={e}
               onClick={handlePosition}
               data-value={e}

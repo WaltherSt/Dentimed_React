@@ -1,24 +1,18 @@
 import Button from "../button/Button";
 import Input from "./Input";
-import Select from "./Select";
 
 export default function FormRegister() {
-  const lista = ["Masculino", "Femenino"];
 
-  return (
-    <form
-      action=""
-      className="flex flex-col gap-3 w-96 h-[450px] shadow-large  p-5 rounded-lg bg-white z-40 inset-x-1/2 "
-    >
-      <Input placeholder="Nombres" type="text" />
-      <Input placeholder="Apellidos" type="text" />{" "}
-      <Input placeholder="Correo" type="email" />{" "}
-      <Input placeholder="Telefono" type="tel" />
-      <Select items={lista} />
-      <Input placeholder="Fecha de nacimiento" type="date" />{" "}
-      <Input placeholder="Contraseña" type="password" />
+ return (
+    <form className="flex flex-col gap-2 w-full">
+      <Input placeholder="Nº Identificación" type="number" name="cedula" />
+      <Input placeholder="Nombres" type="text" name="nombres" />{" "}
+      <Input placeholder="Apellidos" type="text" name="apellidos" />{" "}
+      <Input placeholder="Telefono" type="tel" name="telefono" />
+      <Input placeholder="Email" type="email" name="correo" />
+      <Input placeholder="Dirección" type="text" name="direccion" />
       <div className="w-full">
-        <Button label="Crear" background="Primary"/>
+        <Button label="Crear" background="Primary" />
       </div>
     </form>
   );

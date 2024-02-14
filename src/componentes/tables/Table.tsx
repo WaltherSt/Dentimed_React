@@ -1,15 +1,15 @@
 import { FunctionComponent } from "react";
-import { PacienteI } from "../../interfaces/PacienteI";
+import { Patient } from "../../redux/service/patientApi";
 import Pagination from "./Pagination";
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 
 interface TableProps {
-  items: PacienteI[];
+  items: Patient[];
 }
 
 const Table: FunctionComponent<TableProps> = ({ items }) => {
-  const headers = Object.keys(items[0]);
+  const headers = Object?.keys(items[0]);
 
   return (
     <>

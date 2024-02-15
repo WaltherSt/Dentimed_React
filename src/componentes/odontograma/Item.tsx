@@ -52,7 +52,7 @@ const Item: FunctionComponent<ItemProps> = ({ num = 0, condition }) => {
         </div>
 
         <div className="flex justify-center items-center w-10 h-10 border-1 border-black rounded-full absolute inset-x-0 top-0">
-          <div className="w-5 h-5 border-1 border-black rounded-full bg-white"></div>
+          <div className="w-5 h-5 border-1 border-black rounded-full bg-white "></div>
         </div>
         {statusTooth()}
       </div>

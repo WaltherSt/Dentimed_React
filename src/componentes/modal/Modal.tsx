@@ -17,16 +17,16 @@ const Modal: FunctionComponent<ModalProps> = ({ body }) => {
   return (
     <>
       {modal ? (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-70">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-70 ">
 
-          <div className="w-96 flex justify-end ml-3 mb-1">
-          <button className="text-white" onClick={handleClick}>
+          <div className="w-96 flex justify-end ml-3 mb-1 ">
+          <button className="text-white " onClick={handleClick}>
             {<XMark />}
           </button>
 
           </div>
 
-          <div className="flex flex-col gap-3 w-96 shadow-large p-5 rounded-lg bg-white">
+          <div className="flex flex-col gap-3 w-96 shadow-large p-5 rounded-lg bg-white ">
             <div className="flex">{body}</div>
           </div>
         </div>

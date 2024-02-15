@@ -95,7 +95,7 @@ const Odontograma: FunctionComponent<OdontogramaProps> = () => {
             Pieza dental seleccionada
           </label>
           <input
-            className="p-2 rounded-md bg-gray-50 "
+            className="p-2 rounded-md bg-gray-50"
             type="text"
             name="id"
             value={id}

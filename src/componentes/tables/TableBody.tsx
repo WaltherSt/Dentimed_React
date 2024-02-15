@@ -1,6 +1,9 @@
 import { FunctionComponent } from "react";
-
-import { Patient } from "../../redux/service/patientApi";
+import {
+  Patient,
+  useDeletePatientMutation,
+  useGetPatientsQuery,
+} from "../../redux/service/patientApi";
 import DeleteIcon from "../icons/DeleteIcon";
 import EditIconII from "../icons/EditIconII";
 import EyeIcom from "../icons/EyeIcon";
@@ -10,13 +13,18 @@ interface Props {
 }
 
 const TableBody: FunctionComponent<Props> = ({ data }) => {
+  const [deletePatient] = useDeletePatientMutation();
+  const { refetch } = useGetPatientsQuery(null);
+
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    await deletePatient(e.currentTarget.getAttribute("value"));
+    refetch();
+  };
+
   return (
     <tbody>
       {data.map((item) => (
-        <tr
-          className="hover:bg-gray-50"
-          key={item.cedula}
-        >
+        <tr className="hover:bg-gray-50" key={item.cedula}>
           {Object?.values(item).map((el) => (
             <td
               className="py-2 px-5 border-b text-gray-400 cursor-pointer "
@@ -31,13 +39,17 @@ const TableBody: FunctionComponent<Props> = ({ data }) => {
                 <EyeIcom />{" "}
               </div>
               <div className="text-green-200 hover:text-green-500">
-                {" "}
                 <EditIconII />{" "}
               </div>
-              <div className="text-red-200 hover:text-red-500">
-                {" "}
+              <button
+                className="text-red-200 hover:text-red-500"
+                name="cedula"
+                value={item.cedula}
+                onClick={handleClick}
+                key={item.cedula}
+              >
                 <DeleteIcon />
-              </div>
+              </button>
             </div>
           </td>
         </tr>

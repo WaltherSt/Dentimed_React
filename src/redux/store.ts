@@ -19,7 +19,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat([patientsApi.middleware]),
 });
 
-setupListeners(store.dispatch)
+setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

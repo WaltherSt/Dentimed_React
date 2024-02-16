@@ -40,6 +40,14 @@ export const patientsApi = createApi({
         method: "DELETE",
       }),
     }),
+
+    updatePatient: builder.mutation<Patient, { patient: Patient }>({
+      query: ({patient}) => ({
+        url: `/patients/${patient.cedula}`,
+        method: "PATCH",
+        body: patient,
+      }),
+    }),
   }),
 });
 
@@ -48,4 +56,5 @@ export const {
   useGetPatientByIdQuery,
   useCreatePatientMutation,
   useDeletePatientMutation,
+  useUpdatePatientMutation,
 } = patientsApi;

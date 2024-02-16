@@ -1,20 +1,29 @@
-import { FunctionComponent, useState } from "react";
+import { Spinner } from "@nextui-org/react";
+import { FunctionComponent, useEffect, useState } from "react";
 import useModal from "../../hooks/useModal";
+import { isEditMode } from "../../redux/features/isEditSlice";
 import { changeStatus } from "../../redux/features/modalPacienteSlice";
+import { useAppSelector } from "../../redux/hooks";
 import {
+  Patient,
   useCreatePatientMutation,
   useGetPatientsQuery,
+  useUpdatePatientMutation,
 } from "../../redux/service/patientApi";
 
 interface FormRegisterProps {}
 
 const FormRegister: FunctionComponent<FormRegisterProps> = () => {
   const [addPatient] = useCreatePatientMutation();
+  const [updatePatient, { isLoading }] = useUpdatePatientMutation();
+
   const { refetch } = useGetPatientsQuery(null);
+  const isEdit = useAppSelector((state) => state.isEditSlice.value);
+  const data: Patient = useAppSelector((state) => state.patientSelectSlice);
 
   const { dispatch } = useModal();
 
-  const [patient, setPatient] = useState({
+  const [patient, setPatient] = useState<Patient>({
     cedula: "",
     nombres: "",
     apellidos: "",
@@ -22,6 +31,12 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
     correo: "",
     direccion: "",
   });
+
+  useEffect(() => {
+    if (isEdit) {
+      setPatient(data);
+    }
+  }, [isEdit, data]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -34,13 +49,21 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
 
-    await addPatient(patient);
-    refetch();
-    dispatch(changeStatus());
+    if (isEdit) {
+      await updatePatient({ patient });
+      await refetch();
+      dispatch(isEditMode({ activeModeEdit: false }));
+      dispatch(changeStatus());
+    } else {
+      await addPatient(patient);
+      await refetch();
+      dispatch(changeStatus());
+    }
   };
 
   return (
     <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
+      {isLoading ? <Spinner /> : null}
       <div className="flex flex-col">
         <label className="pb-[8px] ">Cedula</label>
         <input
@@ -105,7 +128,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
       </div>
 
       <button className="w-full bg-sky-300 p-2 text-white rounded hover:bg-sky-400 mt-2 font-normal">
-        Registrar
+        {isEdit ? "Editar" : "Registrar"}
       </button>
     </form>
   );

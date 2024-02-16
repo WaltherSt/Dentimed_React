@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 
 function FormRegister_2() {
-  const { 
-    register, 
-    handleSubmit, 
+  const {
+    register,
+    handleSubmit,
     formState: {errors},
     reset
 } = useForm();
@@ -20,20 +20,20 @@ function FormRegister_2() {
     className="flex flex-col gap-5 w-full border-1 border-black px-10">
 
       <div>
-        <input type="number" placeholder="N cedula" 
+        <input type="number" placeholder="N cedula"
         {...register("cedula", {
-            required: {value:true, message:"Número de cédula requerido"}, 
-            minLength: {value:8, message:"Minimo debe tener 8 números"}, 
+            required: {value:true, message:"Número de cédula requerido"},
+            minLength: {value:8, message:"Minimo debe tener 8 números"},
             maxLength: {value:10, message:"Maximo debe tener 10 números"},
         })}
         />
-         {errors.cedula && 
+         {errors.cedula &&
         <span className="text-dentimed-danger text-sm">{errors.cedula.message}</span>
         }
       </div>
 
       <div>
-        <input type="text" placeholder="Nombres" 
+        <input type="text" placeholder="Nombres"
         {...register("nombres", {
             required: {value:true, message:"Nombres requeridos"},
             minLength: {value:3, message:"Minimo debe tener 3 letras"},
@@ -44,7 +44,7 @@ function FormRegister_2() {
       </div>
 
       <div>
-        <input type="text" placeholder="Apellidos" 
+        <input type="text" placeholder="Apellidos"
         {...register("apellidos", {
             required: {value:true, message:"Apellidos requeridos"},
             minLength: {value:5, message:"Minimo debe tener 5 letras"},
@@ -55,7 +55,7 @@ function FormRegister_2() {
       </div>
 
       <div>
-        <input type="number" placeholder="N telefono" 
+        <input type="number" placeholder="N telefono"
         {...register("telefono", {
             required: {value:true, message:"Telefono requerido"},
             minLength: {value:7, message:"Minimo debe tener 7 números"},
@@ -66,7 +66,7 @@ function FormRegister_2() {
       </div>
 
       <div>
-        <input type="email" placeholder="correo electronico" 
+        <input type="email" placeholder="correo electronico"
         {...register("correo", {
             required: {value:true, message:"Correo requerido"},
             pattern: {value:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -78,7 +78,7 @@ function FormRegister_2() {
       </div>
 
       <div>
-        <input type="text" placeholder="direccion" 
+        <input type="text" placeholder="direccion"
         {...register("direccion", {
           required: {value:true, message:"Dirección requerida"}
         })}

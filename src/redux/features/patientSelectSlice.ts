@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit/react";
 import { Patient } from "../service/patientApi";
 
 const initialState: Patient = {
@@ -11,19 +11,17 @@ const initialState: Patient = {
 };
 
 export const patientSelectSlice = createSlice({
-  name: "counter",
+  name: "patient-selected",
   initialState,
   reducers: {
-    setPatientSelect: (
+    setPatientSelected: (
       state,
-      {
-        payload: { name, change },
-      }: PayloadAction<{ name: string; change: string }>
+      { payload: { data } }: PayloadAction<{ data: Patient }>
     ) => {
-      state[name] = change;
+      return { ...state, ...data };
     },
   },
 });
 
-export const { setPatientSelect } = patientSelectSlice.actions;
+export const { setPatientSelected } = patientSelectSlice.actions;
 export default patientSelectSlice.reducer;

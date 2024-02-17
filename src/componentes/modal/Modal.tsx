@@ -1,6 +1,9 @@
 import { FunctionComponent, ReactNode } from "react";
 import useModal from "../../hooks/useModal";
+import { isEditMode } from "../../redux/features/isEditSlice";
 import { changeStatus } from "../../redux/features/modalPacienteSlice";
+import { setPatientSelected } from "../../redux/features/patientSelectSlice";
+import { usePatient } from "../../source/usePatient";
 import XMark from "../icons/XMark";
 
 interface ModalProps {
@@ -9,9 +12,12 @@ interface ModalProps {
 
 const Modal: FunctionComponent<ModalProps> = ({ body }) => {
   const { modal, dispatch } = useModal();
+  const { patient } = usePatient();
 
   function handleClick() {
     dispatch(changeStatus());
+    dispatch(setPatientSelected({ data: patient }));
+    dispatch(isEditMode({ activeModeEdit: false }));
   }
 
   return (

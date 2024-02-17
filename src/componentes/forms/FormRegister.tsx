@@ -65,7 +65,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
     <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
       {isLoading ? <Spinner /> : null}
       <div className="flex flex-col">
-        <label className="pb-[8px] ">Cedula</label>
+        <label className="pb-[8px] " htmlFor="cedula">
+          Cedula
+        </label>
         <input
           className="px-2 w-full h-10 rounded bg-gray-100  "
           type="text"
@@ -76,7 +78,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
       </div>
 
       <div className="flex flex-col">
-        <label className="pb-[8px]">Nombres</label>
+        <label className="pb-[8px]" htmlFor="nombres">
+          Nombres
+        </label>
         <input
           className="px-2 w-full h-10 rounded bg-gray-100 "
           type="text"
@@ -86,7 +90,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         />
       </div>
       <div className="flex flex-col">
-        <label className="pb-[8px]">Apellidos</label>
+        <label className="pb-[8px]" htmlFor="apellidos">
+          Apellidos
+        </label>
         <input
           className="px-2 w-full h-10 rounded bg-gray-100"
           type="text"
@@ -107,7 +113,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         />
       </div>
       <div className="flex flex-col">
-        <label className=" pb-[8px]">Correo</label>
+        <label className=" pb-[8px]" htmlFor="correo">
+          Correo
+        </label>
         <input
           className="px-2 w-full h-10 rounded bg-gray-100 "
           type="text"
@@ -117,7 +125,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         />
       </div>
       <div className="flex flex-col">
-        <label className="pb-[8px]">Dirección</label>
+        <label className="pb-[8px]" htmlFor="direccion">
+          Dirección
+        </label>
         <input
           className="px-2 w-full h-10 rounded bg-gray-100"
           type="text"

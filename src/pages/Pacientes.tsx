@@ -9,12 +9,14 @@ import Select from "../componentes/select/Select";
 import Table from "../componentes/tables/Table";
 import useModal from "../hooks/useModal";
 import { changeStatus } from "../redux/features/modalPacienteSlice";
-import { useGetPatientsQuery } from "../redux/service/patientApi";
+import { useHandleClickPatient } from "../source/handles/handleClickPatient";
+import { patientEmpty } from "../source/patientEmpty";
 interface PacientesProps {}
 
 const Pacientes: FunctionComponent<PacientesProps> = () => {
-  const { data, error, isLoading } = useGetPatientsQuery(null);
-
+  const headers = Object?.keys(patientEmpty);
+  const { handleDeleteClick, handleEditClick, data, isError, isLoading } =
+    useHandleClickPatient();
   const { dispatch } = useModal();
 
   return (
@@ -47,14 +49,19 @@ const Pacientes: FunctionComponent<PacientesProps> = () => {
           </div>
         </div>
 
-        {error ? (
+        {isError ? (
           <>Oh no, there was an error</>
         ) : isLoading ? (
           <div className="w-full flex justify-center pt-5">
             <Spinner size="lg" />
           </div>
         ) : data ? (
-          <Table items={data} />
+          <Table
+            headers={headers}
+            handleDeleteClick={handleDeleteClick}
+            handleEditClick={handleEditClick}
+            data={data}
+          />
         ) : null}
       </div>
     </>

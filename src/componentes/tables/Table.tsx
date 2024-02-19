@@ -1,21 +1,36 @@
 import { FunctionComponent } from "react";
+
 import { Patient } from "../../redux/service/patientApi";
 import Pagination from "./Pagination";
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 
 interface TableProps {
-  items: Patient[];
+  headers: string[];
+  handleDeleteClick: (
+    e: React.MouseEvent<SVGElement, MouseEvent>
+  ) => Promise<void>;
+  handleEditClick: (
+    e: React.MouseEvent<SVGElement, MouseEvent>
+  ) => Promise<void>;
+  data: Patient[] | undefined;
 }
 
-const Table: FunctionComponent<TableProps> = ({ items }) => {
-  const headers = Object?.keys(items[0]);
-
+const Table: FunctionComponent<TableProps> = ({
+  headers,
+  handleDeleteClick,
+  handleEditClick,
+  data,
+}) => {
   return (
     <>
       <table className="w-full bg-white shadow">
         <TableHeader headers={headers} />
-        <TableBody data={items} />
+        <TableBody
+          deleteRegisterHandle={handleDeleteClick}
+          editRegisterHandle={handleEditClick}
+          data={data}
+        />
       </table>
 
       <Pagination />

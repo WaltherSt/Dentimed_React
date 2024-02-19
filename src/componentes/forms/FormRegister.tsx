@@ -1,4 +1,3 @@
-import { Spinner } from "@nextui-org/react";
 import { FunctionComponent, useEffect, useState } from "react";
 import useModal from "../../hooks/useModal";
 import { isEditMode } from "../../redux/features/isEditSlice";
@@ -7,36 +6,28 @@ import { useAppSelector } from "../../redux/hooks";
 import {
   Patient,
   useCreatePatientMutation,
-  useGetPatientsQuery,
   useUpdatePatientMutation,
 } from "../../redux/service/patientApi";
+import { patientEmpty } from "../../source/patientEmpty";
 
 interface FormRegisterProps {}
 
 const FormRegister: FunctionComponent<FormRegisterProps> = () => {
   const [addPatient] = useCreatePatientMutation();
-  const [updatePatient, { isLoading }] = useUpdatePatientMutation();
-
-  const { refetch } = useGetPatientsQuery(null);
+  const [updatePatient] = useUpdatePatientMutation();
   const isEdit = useAppSelector((state) => state.isEditSlice.value);
-  const data: Patient = useAppSelector((state) => state.patientSelectSlice);
+  const patientSelected: Patient = useAppSelector(
+    (state) => state.patientSelectSlice
+  );
 
   const { dispatch } = useModal();
-
-  const [patient, setPatient] = useState<Patient>({
-    cedula: "",
-    nombres: "",
-    apellidos: "",
-    telefono: "",
-    correo: "",
-    direccion: "",
-  });
+  const [patient, setPatient] = useState<Patient>(patientEmpty);
 
   useEffect(() => {
     if (isEdit) {
-      setPatient(data);
+      setPatient(patientSelected);
     }
-  }, [isEdit, data]);
+  }, [isEdit, patientSelected]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -50,20 +41,18 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
     e.preventDefault();
 
     if (isEdit) {
-      await updatePatient({ patient });
-      await refetch();
+      await updatePatient({ patient: patient });
       dispatch(isEditMode({ activeModeEdit: false }));
       dispatch(changeStatus());
     } else {
       await addPatient(patient);
-      await refetch();
+
       dispatch(changeStatus());
     }
   };
 
   return (
     <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
-      {isLoading ? <Spinner /> : null}
       <div className="flex flex-col">
         <label className="pb-[8px] " htmlFor="cedula">
           Cedula

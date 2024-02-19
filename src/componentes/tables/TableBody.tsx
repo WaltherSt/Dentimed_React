@@ -1,52 +1,25 @@
 import { FunctionComponent, MouseEvent } from "react";
-import { isEditMode } from "../../redux/features/isEditSlice";
-import { changeStatus } from "../../redux/features/modalPacienteSlice";
-import { setPatientSelected } from "../../redux/features/patientSelectSlice";
-import { useAppDispatch } from "../../redux/hooks";
-import {
-  useDeletePatientMutation,
-  useGetPatientsQuery,
-} from "../../redux/service/patientApi";
+
+import { Patient } from "../../redux/service/patientApi";
 import DeleteIcon from "../icons/DeleteIcon";
 import EditIconII from "../icons/EditIconII";
 import EyeIcom from "../icons/EyeIcon";
 
-interface Props {}
+interface Props {
+  deleteRegisterHandle: (
+    e: MouseEvent<SVGElement, globalThis.MouseEvent>
+  ) => Promise<void>;
+  editRegisterHandle: (
+    e: MouseEvent<SVGElement, globalThis.MouseEvent>
+  ) => Promise<void>;
+  data: Patient[];
+}
 
-const TableBody: FunctionComponent<Props> = () => {
-  const dispatch = useAppDispatch();
-
-  const [deletePatient] = useDeletePatientMutation();
-  const { data, refetch } = useGetPatientsQuery(null);
-
-  const handleDeleteClick = async (e: React.MouseEvent<SVGElement>) => {
-    const id = e.currentTarget.getAttribute("id");
-
-    if (id !== null) {
-      await deletePatient(id);
-      refetch();
-    } else {
-      return;
-    }
-  };
-
-  const handleEditClick = async (e: React.MouseEvent<SVGElement>) => {
-    const id = e.currentTarget.getAttribute("id");
-    if (id !== null) {
-      const patientToEdit = data?.find((p) => p.cedula == id);
-
-      if (patientToEdit !== undefined) {
-        dispatch(setPatientSelected({ data: patientToEdit }));
-      }
-
-      dispatch(changeStatus());
-      dispatch(isEditMode({ activeModeEdit: true }));
-      refetch();
-    } else {
-      return;
-    }
-  };
-
+const TableBody: FunctionComponent<Props> = ({
+  deleteRegisterHandle,
+  editRegisterHandle,
+  data,
+}) => {
   return (
     <tbody>
       {data
@@ -68,7 +41,7 @@ const TableBody: FunctionComponent<Props> = () => {
 
                   <EditIconII
                     handle={(e: MouseEvent<SVGElement, MouseEvent>) =>
-                      handleEditClick(e)
+                      editRegisterHandle(e)
                     }
                     name={item.cedula}
                     classStyle="text-green-300 hover:text-green-500"
@@ -76,7 +49,7 @@ const TableBody: FunctionComponent<Props> = () => {
 
                   <DeleteIcon
                     handle={(e: MouseEvent<SVGElement, MouseEvent>) =>
-                      handleDeleteClick(e)
+                      deleteRegisterHandle(e)
                     }
                     name={item.cedula}
                     classStyle="text-red-300 hover:text-red-500"

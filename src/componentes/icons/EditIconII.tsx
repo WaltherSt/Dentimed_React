@@ -1,7 +1,7 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, MouseEvent } from "react";
 
 interface EditIconIIProps {
-  handle?: () => Promise<void>;
+  handle?: (e: MouseEvent<SVGElement, MouseEvent>) => Promise<void>;
   classStyle?: string;
   name?: string;
 }

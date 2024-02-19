@@ -12,16 +12,15 @@ export type Patient = {
 export const patientsApi = createApi({
   reducerPath: "patientApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8091/api",
-    prepareHeaders: (headers) => {
-      headers.set("Content-Type", "application/json");
-      return headers;
-    },
+    baseUrl: import.meta.env.VITE_BACKEND_URL,
   }),
+  tagTypes: ["Patients"],
   endpoints: (builder) => ({
-    getPatients: builder.query<Patient[], null>({
+    getPatients: builder.query<Patient[],void>({
       query: () => "/patients",
+      providesTags: ["Patients"],
     }),
+
     getPatientById: builder.query<Patient, { cedula: string }>({
       query: ({ cedula }) => `/patients/${cedula}`,
     }),
@@ -32,6 +31,7 @@ export const patientsApi = createApi({
         method: "POST",
         body: patient,
       }),
+      invalidatesTags: ["Patients"],
     }),
 
     deletePatient: builder.mutation<void, string>({
@@ -39,14 +39,16 @@ export const patientsApi = createApi({
         url: `/patients/${cedula}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Patients"],
     }),
 
     updatePatient: builder.mutation<Patient, { patient: Patient }>({
-      query: ({patient}) => ({
+      query: ({ patient }) => ({
         url: `/patients/${patient.cedula}`,
         method: "PATCH",
         body: patient,
       }),
+      invalidatesTags: ["Patients"],
     }),
   }),
 });

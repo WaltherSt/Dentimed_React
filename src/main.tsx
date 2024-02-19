@@ -2,6 +2,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+
 import App from "./App.tsx";
 
 import CalendarV2 from "./componentes/calendarv2/CalendarV2.tsx";

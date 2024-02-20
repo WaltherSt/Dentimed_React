@@ -1,5 +1,6 @@
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { configureStore } from "@reduxjs/toolkit/react";
+import isDeleteRegister from "./features/isDeleteRegister";
 import isEditSlice from "./features/isEditSlice";
 import modalSlice from "./features/modalPacienteSlice";
 import patientSelectSlice from "./features/patientSelectSlice";
@@ -10,6 +11,7 @@ import { patientsApi } from "./service/patientApi";
 export const store = configureStore({
   reducer: {
     isEditSlice,
+    isDeleteRegister,
     patientSelectSlice,
     modalSlice,
     toothSelectSlice,

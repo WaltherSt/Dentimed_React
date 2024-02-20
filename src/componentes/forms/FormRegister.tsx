@@ -1,3 +1,4 @@
+import { Spinner } from "@nextui-org/react";
 import { FunctionComponent, useEffect, useState } from "react";
 import useModal from "../../hooks/useModal";
 import { isEditMode } from "../../redux/features/isEditSlice";
@@ -13,9 +14,11 @@ import { patientEmpty } from "../../source/patientEmpty";
 interface FormRegisterProps {}
 
 const FormRegister: FunctionComponent<FormRegisterProps> = () => {
-  const [addPatient] = useCreatePatientMutation();
-  const [updatePatient] = useUpdatePatientMutation();
+  const [addPatient, { isLoading: isLoadingAdd }] = useCreatePatientMutation();
+  const [updatePatient, { isLoading: isLoadingUpdate }] =
+    useUpdatePatientMutation();
   const isEdit = useAppSelector((state) => state.isEditSlice.value);
+
   const patientSelected: Patient = useAppSelector(
     (state) => state.patientSelectSlice
   );
@@ -37,7 +40,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.MouseEvent) => {
+  const handleSavePatient = async (e: React.MouseEvent) => {
     e.preventDefault();
 
     if (isEdit) {
@@ -46,13 +49,20 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
       dispatch(changeStatus());
     } else {
       await addPatient(patient);
-
       dispatch(changeStatus());
     }
   };
 
   return (
-    <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col gap-2 w-full relative"
+      onSubmit={handleSavePatient}
+    >
+      {isLoadingAdd || isLoadingUpdate ? (
+        <div className="absolute inset-0 flex items-center justify-center w-full h-full">
+          <Spinner />
+        </div>
+      ) : null}
       <div className="flex flex-col">
         <label className="pb-[8px] " htmlFor="cedula">
           Cedula

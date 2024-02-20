@@ -4,11 +4,13 @@ import { Spinner } from "@nextui-org/react";
 import FormRegister from "../componentes/forms/FormRegister";
 import AddUser from "../componentes/icons/AddUser";
 import ListIcon from "../componentes/icons/ListIcon";
+import DeleteModal from "../componentes/modal/DeleteModal";
 import Modal from "../componentes/modal/Modal";
 import Select from "../componentes/select/Select";
 import Table from "../componentes/tables/Table";
 import useModal from "../hooks/useModal";
 import { changeStatus } from "../redux/features/modalPacienteSlice";
+import { useAppSelector } from "../redux/hooks";
 import { useHandleClickPatient } from "../source/handles/handleClickPatient";
 import { patientEmpty } from "../source/patientEmpty";
 interface PacientesProps {}
@@ -18,10 +20,13 @@ const Pacientes: FunctionComponent<PacientesProps> = () => {
   const { handleDeleteClick, handleEditClick, data, isError, isLoading } =
     useHandleClickPatient();
   const { dispatch } = useModal();
+  const isDelete = useAppSelector((state) => state.isDeleteRegister.value);
 
   return (
     <>
       <Modal body={<FormRegister />} />
+
+      {isDelete ? <DeleteModal /> : null}
 
       <div className="w-full">
         <div className="flex gap-2 p-3 bg-white mb-2 shadow items-center">
